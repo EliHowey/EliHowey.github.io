@@ -1,23 +1,24 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,700');
 
-$background-color: hsl(217, 49%, 94%);
-$background-color-secondary: hsl(0, 0%, 12%);
-$accent-color: hsl(350, 75%, 50%);
-$text-color: hsl(350, 25%, 20%);
-$text-color-secondary: hsl(217, 49%, 94%);
-$label-color: hsl(0, 0%, 50%);
+$accent-color: hsl(50, 100%, 60%);
+$on-accent: black;
+$on-accent-label: hsl(0, 0%, 30%);
+
+$background-color: hsl(210, 25%, 12%);
+$on-background: white;
+$on-background-label: hsl(0, 0%, 70%);
 
 * {
 	box-sizing: border-box;
 }
 
 html {
-	font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 		"Segoe UI Symbol";
 	font-size: 20px;
 	line-height: 1.5;
-	color: $text-color;
+	color: $on-background;
 	background-color: $background-color;
 }
 
@@ -38,8 +39,6 @@ main {
 header {
 	grid-area: header;
 	justify-self: center;
-	color: $text-color-secondary;
-	background-color: $accent-color;
 	text-align: right;
 
 	& > div {
@@ -59,12 +58,17 @@ footer {
 	grid-area: footer;
 	align-content: center;
 	padding: 3em 2em;
-	color: $text-color-secondary;
-	background-color: $background-color-secondary;
+	color: $on-accent;
+	background-color: $accent-color;
 	font-size: 0.9rem;
 
 	& a {
 		font-weight: 300;
+		color: $on-accent;
+	}
+
+	& .label {
+		color: $on-accent-label;
 	}
 }
 
@@ -98,7 +102,6 @@ article {
 h1 {
 	font-size: 2.5rem;
 	line-height: 1;
-	color: $text-color-secondary;
 }
 
 h2 {
@@ -142,19 +145,19 @@ a {
 	transition: color 250ms ease, background-color 250ms ease;
 
 	&:hover {
-		color: $background-color;
+		color: $on-accent;
 		background-color: $accent-color;
 	}
 }
 
 header a {
-	color: $text-color-secondary;
-	box-shadow: 0 2px 0 0 $text-color-secondary;
+	color: $accent-color;
+	box-shadow: unset;
 
 	&:hover,
 	&.nav-link__active {
-		color: $accent-color;
-		background-color: $text-color-secondary;
+		color: $on-accent;
+		background-color: $accent-color;
 	}
 }
 
@@ -174,8 +177,8 @@ nav ul {
 .label {
 	font-size: 0.83em;
 	font-weight: 300;
-	letter-spacing: 0.5px;
-	color: $label-color;
+	letter-spacing: 0.25px;
+	color: $on-background-label;
 }
 
 .blog-post {
@@ -193,7 +196,7 @@ nav ul {
 		position: absolute;
 		z-index: 0;
 		content: '';
-		background-color: $text-color;
+		background-color: $on-background;
 		transition: background-color 150ms ease;
 	}
 
@@ -201,7 +204,6 @@ nav ul {
 	&::before {
 		top: 0;
 		bottom: 0;
-		// left: $post-title-font-size / -4;
 		left: 0;
 		width: 4px;
 	}
@@ -214,11 +216,7 @@ nav ul {
 		width: $post-title-font-size / 2;
 		border: 2px solid $background-color;
 		border-radius: 50%;
-		background-color: $text-color;
-	}
-
-	&:hover {
-		background-color: hsla(350, 75%, 50%, 0.1);
+		background-color: $on-background;
 	}
 
 	&:hover::before,

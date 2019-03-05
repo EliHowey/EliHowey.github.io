@@ -1,0 +1,215 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,500,600|Lato:300,700');
+
+/* CSS Variables */
+:root {
+	--background-main: hsl(210, 25%, 12%);
+	--background-alt: hsl(50, 96%, 45%);
+	--text-main: white;
+	--text-alt: black;
+	--label-color: hsl(0, 0%, 70%);
+	--link-color: hsl(50, 96%, 45%);
+	--link-underline: #203cf3;
+	--code-background: hsl(210, 40%, 20%);
+}
+
+footer {
+	--background-main: hsl(50, 96%, 45%);
+	--text-main: black;
+	--label-color: hsl(0, 0%, 30%);
+	--link-color: black;
+}
+
+/* Resets */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* General CSS */
+html {
+	font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 20px;
+	line-height: 1.5;
+	color: var(--text-main);
+	background-color: var(--background-main);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1, h2 {
+	margin: 1em 0;
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+h3, h4, h5, h6 {
+	font-weight: 500;
+}
+
+ul {
+	list-style-type: none;
+}
+
+nav ul {
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+a {
+	color: var(--link-color);
+	background-color: transparent;
+
+	// Remove native underline, and replace with box shadow
+	text-decoration: none;
+	box-shadow: 0 4px 0 0 var(--link-underline);
+	transition: box-shadow 100ms linear;
+
+	&:hover {
+		box-shadow: 0 4px var(--link-underline), inset 0 -0.5em var(--link-underline);
+	}
+}
+
+.label {
+	font-size: 0.83em;
+	font-weight: 300;
+	letter-spacing: 0.25px;
+	color: var(--label-color);
+}
+
+/* Shared Page Layout */
+body {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	grid-template-columns: minmax(min-content, 1fr) 3fr;
+	grid-template-areas: "header main" "footer footer";
+	grid-gap: 3rem;
+}
+
+header,
+main {
+	min-height: 100vh;
+	padding-top: 2rem;
+}
+
+header {
+	grid-area: header;
+	justify-self: center;
+	text-align: right;
+
+	& > div {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 1rem;
+	}
+}
+
+main {
+	grid-area: main;
+	padding-left: 3rem;
+}
+
+footer {
+	grid-area: footer;
+	align-content: center;
+	padding: 0 2em 3em;
+	font-size: 0.9rem;
+	color: var(--text-main);
+	background-color: var(--background-main);
+}
+
+.footer__inner {
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-gap: 1em;
+}
+
+address {
+	font-style: normal;	// By default, address tags are italicized
+}
+
+.contact-grid {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: max-content;
+	grid-gap: 1.25em 2em;
+}
+
+.footer__misc-info {
+	text-align: right;
+}
+
+/* Shared Media Queries */
+@media (max-width: 1100px) {
+	$page-margin: 3rem;
+
+	body {
+		grid-template-rows: max-content 1fr max-content;
+		grid-template-columns: 1fr;
+		grid-template-areas: "header" "main" "footer";
+		grid-gap: 1rem;
+	}
+
+	header,
+	main {
+		padding-bottom: 0;
+	}
+
+	header {
+		min-height: unset;
+		width: calc(100% - 2 * #{$page-margin});
+		padding-top: 0;
+		text-align: left;
+
+		& > div {
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+	}
+
+	main {
+		padding-top: unset;
+		padding-left: unset;
+		margin-left: $page-margin;
+		margin-right: $page-margin;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	h2 {
+		margin: 0.5em 0;
+	}
+
+	nav ul li {
+		display: inline-flex;
+
+		&:not(:last-child) {
+			padding-right: 0.5em;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	html {
+		font-size: 16px;
+	}
+
+	.footer__inner {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 500px) {
+	.contact-grid {
+		grid-auto-flow: row;
+	}
+}

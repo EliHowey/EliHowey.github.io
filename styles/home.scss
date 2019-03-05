@@ -1,0 +1,35 @@
+@import './shared';
+
+body {
+	grid-template-columns: 1fr;
+	grid-template-areas: "main" "footer";
+	grid-gap: 0;
+}
+
+main {
+	padding: 0;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+nav ul li {
+	margin-top: 1em;
+	display: inline-flex;
+
+	&:not(:last-child) {
+		padding-right: 1em;
+	}
+}
+
+@media (max-width: 500px) {
+	nav ul li {
+		display: block;
+		
+		&:not(:last-child) {
+			padding-right: 0;
+		}
+	}
+}

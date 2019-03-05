@@ -8,8 +8,8 @@
 @import './shared';
 
 @mixin callout {
-	border: 1px solid var(--link-color);
-	box-shadow: 4px 4px var(--link-underline);
+	border: 1px solid var(--accent-primary);
+	box-shadow: 4px 4px var(--accent-secondary);
 }
 
 article {
@@ -52,19 +52,19 @@ h6 {
 
 /* Semantic Tags (in alphabetical order) */
 abbr {
-	color: var(--link-color);
+	color: var(--accent-primary);
 	text-decoration: underline dotted;
 }
 
 hr {
 	height: 4px;
 	border: none;
-	background-color: var(--link-underline);
+	background-color: var(--accent-secondary);
 }
 
 mark {
 	padding: 0 2px;
-	background-color: var(--link-color);
+	background-color: var(--accent-primary);
 }
 
 strong {
@@ -77,7 +77,7 @@ article ol {
 	list-style: none;
 
 	& li::before {
-		color: var(--link-color);
+		color: var(--accent-primary);
 		display: inline-block;
 		text-align: right;
 		direction: rtl;
@@ -109,7 +109,7 @@ q::after,
 blockquote::before,
 blockquote::after {
 	font-weight: 700;
-	color: var(--link-color);
+	color: var(--accent-primary);
 }
 
 blockquote {
@@ -130,19 +130,19 @@ blockquote {
 		display: block;
 		margin: 0;
 		text-align: right;
-		color: var(--link-color);
+		color: var(--accent-primary);
 
 		&::before {
 			content: '– ';
-			color: var(--link-underline);
+			color: var(--accent-secondary);
 		}
 	}
 }
 
 /* Images and Figures */
 figure {
-	// border: 1px solid var(--background-alt);
-	// box-shadow: 4px 4px var(--link-underline);
+	// border: 1px solid var(--accent-primary);
+	// box-shadow: 4px 4px var(--accent-secondary);
 	@include callout();
 }
 
@@ -156,8 +156,8 @@ figcaption {
 	padding: 0.5em 0;
 	font-size: 0.8em;
 	text-align: center;
-	color: var(--text-alt);
-	background-color: var(--background-alt);
+	color: var(--on-accent-primary);
+	background-color: var(--accent-primary);
 }
 
 /* Tables */
@@ -176,12 +176,12 @@ caption {
 }
 
 thead {
-	color: var(--text-alt);
-	background-color: var(--background-alt);
+	color: var(--on-accent-primary);
+	background-color: var(--accent-primary);
 }
 
 tfoot {
-	border-top: 1px solid var(--background-alt);
+	border-top: 1px solid var(--accent-primary);
 	font-weight: bold;
 }
 
@@ -196,12 +196,13 @@ th, td {
 
 /* Code Formatting */
 code, samp, kbd {
+	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 	padding: 0 4px;
 	border-radius: 4px;
 }
 
 code {
-	background-color: var(--code-background);
+	background-color: var(--background-light);
 }
 
 samp {
@@ -211,7 +212,7 @@ samp {
 
 kbd {
 	margin: 0 2px;
-	border: 1px solid var(--background-alt);
+	border: 1px solid var(--accent-primary);
 	box-shadow: 2px 2px 2px black;
 }
 
@@ -239,11 +240,45 @@ pre {
 		display: block;
 		font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 		font-weight: 600;
-		color: var(--text-alt);
-		background-color: var(--background-alt);
+		color: var(--on-accent-primary);
+		background-color: var(--accent-primary);
 	}
 
 	& code {
 		background-color: inherit;
 	}
+}
+
+/* Progress Bar */
+@mixin progress-bar-colors {
+	background-color: var(--accent-secondary);
+	background-image: linear-gradient(to right, transparent, var(--accent-primary));
+}
+
+progress {
+	-webkit-appearance: none;
+	appearance: none;
+	border: none;
+	background-color: transparent;
+	color: var(--accent-primary);
+
+	&::-webkit-progress-bar {
+		background-color: transparent;
+	}
+
+	&::-webkit-progress-value {
+		@include progress-bar-colors();
+	}
+
+	&::-moz-progress-bar {
+		@include progress-bar-colors();
+	}
+}
+
+#article-progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 5px;
+	width: 100vw;
 }

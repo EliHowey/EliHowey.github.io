@@ -15,21 +15,12 @@ main {
 	text-align: center;
 }
 
-nav ul li {
-	margin-top: 1em;
-	display: inline-flex;
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 
-	&:not(:last-child) {
+	& li:not(:last-child) {
 		padding-right: 1em;
-	}
-}
-
-@media (max-width: 500px) {
-	nav ul li {
-		display: block;
-		
-		&:not(:last-child) {
-			padding-right: 0;
-		}
 	}
 }

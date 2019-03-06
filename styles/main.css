@@ -85,7 +85,6 @@ a {
 }
 
 a:hover, a:focus {
-  outline: none;
   -webkit-box-shadow: 0 4px var(--accent-secondary), inset 0 -0.5em var(--accent-secondary);
           box-shadow: 0 4px var(--accent-secondary), inset 0 -0.5em var(--accent-secondary);
 }

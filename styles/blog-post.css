@@ -86,7 +86,6 @@ a {
 }
 
 a:hover, a:focus {
-  outline: none;
   -webkit-box-shadow: 0 4px var(--accent-secondary), inset 0 -0.5em var(--accent-secondary);
           box-shadow: 0 4px var(--accent-secondary), inset 0 -0.5em var(--accent-secondary);
 }
@@ -277,6 +276,15 @@ article > * + * {
   margin-top: 1em;
 }
 
+article::after {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  margin: 2rem auto;
+  content: '';
+  background-color: var(--accent-primary);
+}
+
 /* Headings */
 article h2 {
   margin-bottom: 0;
@@ -405,14 +413,24 @@ figure,
 img {
   display: block;
   max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 figcaption {
   padding: 0.5em 0;
+  border-top: 1px solid var(--background);
   font-size: 0.8em;
   text-align: center;
   color: var(--on-accent-primary);
   background-color: var(--accent-primary);
+}
+
+.float-right {
+  float: right;
+  shape-outside: border-box;
+  padding-left: 1em;
+  padding-bottom: 1em;
 }
 
 /* Tables */
@@ -459,6 +477,7 @@ code, samp, kbd {
 }
 
 code {
+  color: var(--on-background);
   background-color: var(--background-light);
 }
 
@@ -542,5 +561,37 @@ progress::-moz-progress-bar {
   content: '•';
   padding: 0 1ch;
   color: var(--accent-primary);
+}
+
+.color-swatch-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.color-swatch {
+  min-height: 3em;
+  padding: 0.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.color-swatch[data-color]::after {
+  content: attr(data-color);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=blog-post.css.map */

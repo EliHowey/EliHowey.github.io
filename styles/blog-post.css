@@ -533,4 +533,10 @@ progress::-moz-progress-bar {
   height: 5px;
   width: 100vw;
 }
+
+#blog-post-length-estimate::before {
+  content: '•';
+  padding: 0 1ch;
+  color: var(--accent-primary);
+}
 /*# sourceMappingURL=blog-post.css.map */

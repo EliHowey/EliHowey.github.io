@@ -31,7 +31,7 @@
 		position: absolute;
 		z-index: 0;
 		content: '';
-		background-color: var(--text-main);
+		background-color: var(--on-background);
 		transition: background-color 150ms ease;
 	}
 
@@ -44,7 +44,7 @@
 	}
 
 	&:hover::before {
-		background-color: var(--link-color);
+		background-color: var(--accent-primary);
 	}
 
 	// Point next to each post's title
@@ -54,13 +54,13 @@
 		left: calc(-1 * #{$post-title-font-size} / 4 - 10px);
 		height: $post-title-font-size / 2;
 		width: $post-title-font-size / 2;
-		border: 2px solid var(--text-main);
+		border: 2px solid var(--on-background);
 		border-radius: 50%;
-		background-color: var(--background-main);
+		background-color: var(--background);
 	}
 
 	&:hover::after {
-		background-color: var(--link-underline);
+		background-color: var(--accent-secondary);
 	}
 }
 

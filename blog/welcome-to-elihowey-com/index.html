@@ -7,31 +7,29 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../../styles/blog-post.css" />
-	<script src="../../scripts/blog-post.js" type="module"></script>
-	<script src="../../scripts/blog-post-progress.js" type="module"></script>
-	<script src="../../scripts/blog-post-length.js" type="module"></script>
+	<script type="module" src="../../scripts/blog-post.js"></script>
 </head>
 <body>
+	<a href="#content" visually-hidden>Skip to content</a>
 	<header>
 		<div>
 			<h1><a href="/">Eli Howey</a></h1>
 			<nav>
 				<ul>
 					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/" class="nav-link__active">Blog</a></li>
+					<li><a href="/blog/">Blog</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<main>
-		<article>
-			<div>
+	<main id="content">
+		<article id="blog-post">
+			<header id="blog-post-header">
 				<h2>Welcome to elihowey.com!</h2>
-				<time datetime="2019-03-05T17:11:00-06:00" class="label"></time>
-				<span id="blog-post-length-estimate" class="label"></span>
-			</div>
+				<time datetime="2019-03-05T17:11:00-06:00" class="label">March 5, 2019</time>
+			</header>
 
 			<p>
 				Hello, world! I've been telling myself for months (if not years) that I would make my own website, and now I've finally done it. This will be where I post any thoughts I have about work, life, and everything in between. Since this site is my first independent web project, I figure I'll kick things off by talking about how I went about designing and developing it.
@@ -115,8 +113,7 @@
 			</p>
 			
 			<pre data-lang="SCSS">
-				<code>
-a {
+<code>a {
 	// Remove native underline, and replace with box shadow
 	text-decoration: none;
 	box-shadow: 0 4px var(--accent-secondary);
@@ -129,8 +126,8 @@ a {
 			0 4px var(--accent-secondary), 
 			inset 0 -0.5em var(--accent-secondary);
 	}
-}</code>
-			</pre>
+}</code></pre>
+
 			<h4>Reading Experience</h4>
 			<p>
 				Since this is a blog, I think it's important that I do whatever I can to make it easier to <em>read</em> the blog posts! So I've added a couple of JavaScript-powered features to orient readers while they read a post. You can see both features on this page, if you have JavaScript enabled&mdash;but they're both progressive enhancements, so they won't impede the site or muck up the HTML if you have JavaScript disabled.

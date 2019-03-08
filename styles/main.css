@@ -40,6 +40,16 @@ footer {
   display: none;
 }
 
+[visually-hidden] {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  border: 0;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+}
+
 html {
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 20px;
@@ -109,13 +119,13 @@ body {
   grid-gap: 3rem;
 }
 
-header,
-main {
+body > header,
+body > main {
   min-height: 100vh;
   padding-top: 2rem;
 }
 
-header {
+body > header {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: header;
@@ -124,7 +134,7 @@ header {
   text-align: right;
 }
 
-header > div {
+body > header > div {
   position: -webkit-sticky;
   position: sticky;
   top: 1rem;
@@ -137,7 +147,7 @@ header > div {
           flex-flow: column nowrap;
 }
 
-main {
+body > main {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: main;
@@ -145,7 +155,7 @@ main {
   padding-right: 3rem;
 }
 
-footer {
+body > footer {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -194,16 +204,16 @@ address {
         grid-template-areas: "header" "main" "footer";
     grid-gap: 1rem;
   }
-  header,
-  main {
+  body > header,
+  body > main {
     padding: unset;
     padding-bottom: 0;
   }
-  header {
+  body > header {
     min-height: unset;
     width: calc(100% - 2 * 3rem);
   }
-  header > div {
+  body > header > div {
     padding: 0;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -216,7 +226,7 @@ address {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  main {
+  body > main {
     margin-left: 3rem;
     margin-right: 3rem;
   }

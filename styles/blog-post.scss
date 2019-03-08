@@ -244,19 +244,23 @@ pre {
 	tab-size: 2;
 	white-space: pre-wrap;
 	overflow-x: auto;
+	padding: $code-block-padding;
 
 	// Spacing
 	&,
 	&[data-lang]::before {
 		margin-left: $code-block-margin;
 		margin-right: $code-block-margin;
-		padding: 0 $code-block-padding;
+		padding-left: $code-block-padding;
+		padding-right: $code-block-padding;
 	}
 
 	// Language identifier
 	&[data-lang]::before {
 		content: attr(data-lang);
 		display: block;
+		margin-top: $code-block-margin;
+		margin-bottom: $code-block-padding;
 		font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 		font-weight: 600;
 		color: var(--on-accent-primary);

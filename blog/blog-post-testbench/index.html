@@ -7,31 +7,29 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta charset="UTF-8">
 	<link rel="stylesheet" href="../../styles/blog-post.css" />
-	<script src="../../scripts/blog-post.js" type="module"></script>
-	<script src="../../scripts/blog-post-progress.js" type="module"></script>
-	<script src="../../scripts/blog-post-length.js" type="module"></script>
+	<script type="module" src="../../scripts/blog-post.js"></script>
 </head>
 <body>
+	<a href="#content" visually-hidden>Skip to content</a>
 	<header>
 		<div>
 			<h1><a href="/">Eli Howey</a></h1>
 			<nav>
 				<ul>
 					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/" class="nav-link__active">Blog</a></li>
+					<li><a href="/blog/">Blog</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<main>
-		<article>
-			<div>
+	<main id="content">
+		<article id="blog-post">
+			<header id="blog-post-header">
 				<h2>Blog Post Testbench</h2>
-				<time datetime="2019-02-27T11:59:56-06:00" class="label"></time>
-				<span id="blog-post-length-estimate" class="label"></span>
-			</div>
+				<time datetime="2019-02-27T11:59:56-06:00" class="label">February 27, 2019</time>
+			</header>
 			
 			<p>
 				This page acts as a playground to test the formatting of blog posts. Each section below tests different aspects of the design. In general, keep an eye out for changes in spacing, font weights, colors, and semantic relationships like relative sizing.

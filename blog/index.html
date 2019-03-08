@@ -7,37 +7,29 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<meta charset="UTF-8">
 	<link rel="stylesheet" href="../styles/main.css" />
-	<script src="../scripts/blog-post.js" type="text/javascript"></script>
+	<script src="../scripts/blog.js" type="module"></script>
 </head>
 <body>
+	<a href="#content" visually-hidden>Skip to content</a>
 	<header>
 		<div>
 			<h1><a href="/">Eli Howey</a></h1>
 			<nav>
 				<ul>
 					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/" class="nav-link__active">Blog</a></li>
+					<li><a href="/blog/">Blog</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<main>
+	<main id="content">
 		<h2>Blog</h2>
-		<ul class="blog-posts">
-			<li class="blog-post">
-				<h3><a href="./welcome-to-elihowey-com/">Welcome to elihowey.com!</a></h3>
-				<p>The personal website of Eli Howey</p>
-				<time datetime="2019-03-05T17:11:00-06:00" class="label"></time>
-			</li>
-
-			<li class="blog-post" hidden>
-				<h3><a href="./blog-post-test/">Test Post</a></h3>
-				<p></p>
-				<time datetime="2019-02-27T11:59:56-06:00" class="label">3 weeks ago</time>
-			</li>
-		</ul>
+		<noscript>
+			You have JavaScript disabled. This page requires JavaScript to show blog posts.
+		</noscript>
+		<!-- JavaScript will create an unordered list of blog posts here -->
 	</main>
 
 	<footer id="contact">

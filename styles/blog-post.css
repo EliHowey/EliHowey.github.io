@@ -453,11 +453,14 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: var(--on-background);
+  background-color: var(--focus-outline);
+  -webkit-box-shadow: 0 1px 2px rgba(128, 128, 128, 0.5);
+          box-shadow: 0 1px 2px rgba(128, 128, 128, 0.5);
 }
 
 progress::-moz-progress-bar {
-  background-color: var(--on-background);
+  background-color: var(--focus-outline);
+  box-shadow: 0 1px 2px rgba(128, 128, 128, 0.5);
 }
 
 #article-progress-bar {

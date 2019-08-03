@@ -432,9 +432,10 @@ article::after {
   width: 1rem;
   margin: 2rem auto;
   content: "";
-  border: 1px solid var(--on-background);
-  -webkit-box-shadow: 4px 4px var(--on-background);
-          box-shadow: 4px 4px var(--on-background);
+  border: 1px solid black;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px var(--focus-background), 5px 5px black, 8px 8px var(--focus-outline), 9px 9px black;
+          box-shadow: 4px 4px var(--focus-background), 5px 5px black, 8px 8px var(--focus-outline), 9px 9px black;
 }
 
 /* Progress Bar */

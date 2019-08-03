@@ -13,7 +13,8 @@ $inline-element-padding: 0.1em;
 	--background: var(--white);
 	--on-background: var(--gray-dark);
 
-	--focus-background: hsl(56, 100%, 68%);
+	--focus-outline: hotpink;
+	--focus-background: hsl(55, 100%, 50%);
 	--on-focus-background: var(--gray-dark);
 
 	--code-background: hsl(240, 14%, 97%);
@@ -132,8 +133,11 @@ nav,
 nav ul {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	align-items: baseline;
+}
+
+nav {
+	justify-content: space-between;
 }
 
 nav li {
@@ -148,15 +152,18 @@ nav li {
 /* Links */
 a {
 	color: inherit;
+	transition: background-color 100ms linear;
 
 	&:hover,
 	&:focus {
+		text-decoration-color: var(--focus-outline);
 		color: var(--on-focus-background);
 		background-color: var(--focus-background);
 	}
 
 	&:focus {
-		outline: 2px dotted hotpink;
+		outline: 2px dotted var(--focus-outline);
+		text-decoration-color: var(--focus-background);
 	}
 }
 
@@ -374,9 +381,15 @@ body {
 
 	> footer {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: baseline;
 		color: var(--on-background);
 		background-color: var(--background);
+
+		:first-child {
+			flex-shrink: 0;
+			margin-right: 1em;
+		}
 	}
 }

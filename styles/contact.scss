@@ -9,6 +9,10 @@ body {
 main {
 	height: 100%;
 	min-height: unset;
+
+	> * + * {
+		margin-top: 1rem;
+	}
 }
 
 address {

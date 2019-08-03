@@ -1,1 +1,5 @@
 @import "./shared";
+
+main > * + * {
+	margin-top: 1rem;
+}

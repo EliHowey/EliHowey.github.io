@@ -5,277 +5,41 @@
 	Copyright 2019
 */
 
-@import './shared';
+@import "./shared";
 
-@mixin callout {
-	border: 1px solid var(--accent-primary);
-	box-shadow: 4px 4px var(--accent-secondary);
+main {
+	min-height: 100vh;
+	max-width: $max-page-width;
+	margin: auto;
+	padding-bottom: $grid-gap;
 }
 
 article {
 	max-width: 65ch; // For readability
-	margin-bottom: 2rem;
+	margin: auto;
 
 	& > * + * {
 		// Default spacing for all adjacent elements in an article
+		// TODO: Adjust this for things with callouts? Like <pre> tags?
 		margin-top: 1em;
 	}
 
 	// Decorative element to note the end of the article
 	&::after {
+		box-sizing: content-box;
 		display: block;
 		height: 1rem;
 		width: 1rem;
 		margin: 2rem auto;
-		content: '';
-		background-color: var(--accent-primary);
-	}
-}
-
-/* Headings */
-// Remove blog post heading's bottom margin,
-// so the timestamp will align with it
-article h2 {
-	margin-bottom: 0;
-}
-
-h3, h4, h5, h6 {
-	margin-top: 1.5em;
-	margin-bottom: 0.5em;
-}
-
-h3 {
-	font-size: 1.5rem;
-}
-
-h4 {
-	font-size: 1.33rem;
-}
-
-h5 {
-	font-size: 1.2rem;
-}
-
-h6 {
-	font-size: 1rem;
-}
-
-/* Semantic Tags (in alphabetical order) */
-abbr {
-	color: var(--accent-primary);
-	text-decoration: underline dotted;
-}
-
-hr {
-	height: 4px;
-	border: none;
-	background-color: var(--accent-secondary);
-}
-
-mark {
-	padding: 0 2px;
-	background-color: var(--accent-primary);
-}
-
-strong {
-	font-weight: bold;
-}
-
-/* Lists */
-article ul,
-article ol {
-	list-style: none;
-
-	& li::before {
-		color: var(--accent-primary);
-		display: inline-block;
-		text-align: right;
-		direction: rtl;
-		width: 1em;
-		margin-left: -1.5em;
-		margin-right: 0.5em;
-	}
-}
-
-article ul li::before {
-	content: '\2022';	// Unicode for bullet
-}
-
-article ol {
-	counter-reset: li;
-
-	& li {
-		counter-increment: li;
-	}
-
-	& li::before {
-		content: '.'counter(li);
-	}
-}
-
-/* Quotes */
-q::before,
-q::after,
-blockquote::before,
-blockquote::after {
-	font-weight: 700;
-	color: var(--accent-primary);
-}
-
-blockquote {
-	font-size: 1.75em;
-	text-align: center;
-
-	&::before {
-		content: open-quote;
-		margin-right: 0.1em;
-	}
-
-	&::after {
-		content: close-quote;
-		margin-left: 0.1em;
-	}
-
-	& + cite {
-		display: block;
-		margin: 0;
-		text-align: right;
-		color: var(--accent-primary);
-
-		&::before {
-			content: '– ';
-			color: var(--accent-secondary);
-		}
-	}
-}
-
-/* Images and Figures */
-figure {
-	@include callout();
-}
-
-figure,
-img {
-	display: block;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-figcaption {
-	padding: 0.5em 0;
-	border-top: 1px solid var(--background);
-	font-size: 0.8em;
-	text-align: center;
-	color: var(--on-accent-primary);
-	background-color: var(--accent-primary);
-}
-
-.float-right {
-	float: right;
-	shape-outside: border-box;
-	padding-left: 1em;
-	padding-bottom: 1em;
-}
-
-/* Tables */
-table {
-	@include callout();
-	margin: auto;
-	width: 100%;
-	border-collapse: collapse;
-}
-
-caption {
-	font-size: 0.75em;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-thead {
-	color: var(--on-accent-primary);
-	background-color: var(--accent-primary);
-}
-
-tfoot {
-	border-top: 1px solid var(--accent-primary);
-	font-weight: bold;
-}
-
-th, td {
-	padding: 0 5px;
-	text-align: left;
-}
-
-.numeric {
-	text-align: right;
-}
-
-/* Code Formatting */
-code, samp, kbd {
-	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-	padding: 0 4px;
-	border-radius: 4px;
-}
-
-code {
-	color: var(--on-background);
-	background-color: var(--background-light);
-}
-
-samp {
-	color: rgb(119,251,76);
-	background-color: black;
-}
-
-kbd {
-	margin: 0 2px;
-	border: 1px solid var(--accent-primary);
-	box-shadow: 2px 2px 2px black;
-}
-
-pre {
-	$code-block-padding: 1em;
-	$code-block-margin: -1 * $code-block-padding;
-
-	@include callout();
-	font-size: 0.9em;
-	tab-size: 2;
-	white-space: pre-wrap;
-	overflow-x: auto;
-	padding: $code-block-padding;
-
-	// Spacing
-	&,
-	&[data-lang]::before {
-		margin-left: $code-block-margin;
-		margin-right: $code-block-margin;
-		padding-left: $code-block-padding;
-		padding-right: $code-block-padding;
-	}
-
-	// Language identifier
-	&[data-lang]::before {
-		content: attr(data-lang);
-		display: block;
-		margin-top: $code-block-margin;
-		margin-bottom: $code-block-padding;
-		font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-		font-weight: 600;
-		color: var(--on-accent-primary);
-		background-color: var(--accent-primary);
-	}
-
-	& code {
-		background-color: inherit;
+		content: "";
+		border: 1px solid var(--on-background);
+		box-shadow: 4px 4px var(--on-background);
 	}
 }
 
 /* Progress Bar */
 @mixin progress-bar-colors {
-	background-color: var(--accent-secondary);
-	background-image: linear-gradient(to right, transparent, var(--accent-primary));
+	background-color: var(--on-background);
 }
 
 progress {
@@ -283,7 +47,7 @@ progress {
 	appearance: none;
 	border: none;
 	background-color: transparent;
-	color: var(--accent-primary);
+	color: var(--on-background);
 
 	&::-webkit-progress-bar {
 		background-color: transparent;
@@ -307,9 +71,8 @@ progress {
 }
 
 #blog-post-length-estimate::before {
-	content: '•';
+	content: "•";
 	padding: 0 1ch;
-	color: var(--accent-primary);
 }
 
 .color-swatch-container {
@@ -325,7 +88,7 @@ progress {
 	justify-content: center;
 	align-items: center;
 	font-size: 16px;
-	
+
 	&[data-color]::after {
 		content: attr(data-color);
 		font-weight: bold;

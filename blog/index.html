@@ -1,59 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
 		<title>Blog - Eli Howey</title>
-		<meta name="description" content="The personal blog of Eli Howey">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta charset="UTF-8">
-	<link rel="stylesheet" href="../styles/main.css" />
-	<script src="../scripts/blog.js" type="module"></script>
-</head>
-<body>
-	<a href="#content" visually-hidden>Skip to content</a>
-	<header>
-		<div>
-			<h1><a href="/">Eli Howey</a></h1>
+		<meta name="description" content="The personal blog of Eli Howey" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="../styles/blog.css" />
+		<script src="../scripts/blog.js" type="module"></script>
+	</head>
+	<body>
+		<a id="skip-to-content-link" href="#content" class="visually-hidden">Skip to content</a>
+		<header>
 			<nav>
+				<h1 class="homepage-link"><a href="/">Eli Howey</a></h1>
 				<ul>
-					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/">Blog</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</nav>
-		</div>
-	</header>
+		</header>
 
-	<main id="content">
-		<h2>Blog</h2>
-		<noscript>
-			You have JavaScript disabled. This page requires JavaScript to show blog posts.
-		</noscript>
-		<!-- JavaScript will create an unordered list of blog posts here -->
-	</main>
+		<main id="content">
+			<h2>Blog</h2>
+			<noscript>
+				You have JavaScript disabled. This page requires JavaScript to
+				show blog posts.
+			</noscript>
+			<!-- JavaScript will create an unordered list of blog posts here -->
+		</main>
 
-	<footer id="contact">
-		<h2 class="contact-header">Contact</h2>
-		<div class="footer__inner">
-			<address class="contact-grid">
-				<div>
-					<div class="label">Phone</div>
-					<a href="tel:+16086225011">(608) 622-5011</a>
-				</div>
-				<div>
-					<div class="label">Email</div>
-					<a href="mailto:elihowey@gmail.com">elihowey@gmail.com</a>
-				</div>
-				<div>
-					<div class="label">Twitter</div>
-					<a href="https://twitter.com/elihowey">@elihowey</a>
-				</div>
-			</address>
-			<div class="footer__misc-info">
-				<div class="label">&copy; 2019 Eli Howey</div>
-				<a href="#">Back to top</a>
-			</div>
-		</div>
-	</footer>
-</body>
+		<footer>
+			<div class="label">&copy; 2019 Eli Howey</div>
+			<a href="#">Back to top</a>
+		</footer>
+	</body>
 </html>

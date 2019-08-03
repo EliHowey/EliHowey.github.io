@@ -1,118 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Welcome to elihowey.com! - Blog - Eli Howey</title>
-	<meta name="description" content="Welcome! This is the first blog post on Eli Howey's website.">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../../styles/blog-post.css" />
-	<script type="module" src="../../scripts/blog-post.js"></script>
-</head>
-<body>
-	<a href="#content" visually-hidden>Skip to content</a>
-	<header>
-		<div>
-			<h1><a href="/">Eli Howey</a></h1>
+	<head>
+		<title>Welcome to elihowey.com! - Blog - Eli Howey</title>
+		<meta
+			name="description"
+			content="Welcome! This is the first blog post on Eli Howey's website."
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta charset="UTF-8" />
+
+		<!-- Prism (for code formatting) -->
+		<link rel="stylesheet" href="../../styles/prism-dracula.css" />
+		<script type="module" src="../../scripts/prism.js"></script>
+
+		<!-- Page-specific resources -->
+		<link rel="stylesheet" href="../../styles/blog-post.css" />
+		<script type="module" src="../../scripts/blog-post.js"></script>
+	</head>
+	<body>
+		<a id="skip-to-content-link" href="#content" class="visually-hidden">Skip to content</a>
+		<header>
 			<nav>
+				<h1 class="homepage-link"><a href="/">Eli Howey</a></h1>
 				<ul>
-					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/">Blog</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</nav>
-		</div>
-	</header>
+		</header>
 
-	<main id="content">
-		<article id="blog-post">
-			<header id="blog-post-header">
-				<h2>Welcome to elihowey.com!</h2>
-				<time datetime="2019-03-05T17:11:00-06:00" class="label">March 5, 2019</time>
-			</header>
+		<main id="content">
+			<article id="blog-post">
+				<header id="blog-post-header">
+					<h1>Welcome to elihowey.com!</h1>
+					<time
+						is="blog-post-timestamp"
+						datetime="2019-03-05T17:11:00-06:00"
+						class="label"
+						>March 5, 2019</time
+					>
+				</header>
 
-			<p>
-				Hello, world! I've been telling myself for months (if not years) that I would make my own website, and now I've finally done it. This will be where I post any thoughts I have about work, life, and everything in between. Since this site is my first independent web project, I figure I'll kick things off by talking about how I went about designing and developing it.
-			</p>
+				<p>
+					Hello, world! I've been telling myself for months (if not
+					years) that I would make my own website, and now I've
+					finally done it. This will be where I post any thoughts I
+					have about work, life, and everything in between. Since this
+					site is my first independent web project, I figure I'll kick
+					things off by talking about how I went about designing and
+					developing it.
+				</p>
 
-			<h3>The Requirements</h3>
-			<p>
-				I had four things in mind when I started writing the site:
+				<h2>The Requirements</h2>
+				<p>
+					I had four things in mind when I started writing the site:
+				</p>
 				<ol>
-					<li>I wanted to write the whole thing using pure HTML, CSS, and JavaScript. Platforms like Medium or Wordpress seemed too easy (unless I wanted to write my own Wordpress theme, but then why not just write pure CSS?), and JS frameworks like React seemed like overkill for what I was trying to accomplish.</li>
-					<li>I didn't want to mess around with maintaining a web server. I'm not likely to need to host any data beyond the content of the blog posts, anyway.</li>
-					<li>I wanted it to be simple to write posts, but I didn't want to rely on any dependencies to introduce that simplicity. (Why, you ask? Because I can't think of a better way to practice writing HTML than... writing HTML.)
+					<li>
+						I wanted to write the whole thing using pure HTML, CSS,
+						and JavaScript. Platforms like Medium or Wordpress
+						seemed too easy (unless I wanted to write my own
+						Wordpress theme, but then why not just write pure CSS?),
+						and JS frameworks like React seemed like overkill for
+						what I was trying to accomplish.
 					</li>
-					<li>I wanted complete creative freedom in the visual design of the site. No stealing other people's components!</li>
+					<li>
+						I didn't want to mess around with maintaining a web
+						server. I'm not likely to need to host any data beyond
+						the content of the blog posts, anyway.
+					</li>
+					<li>
+						I wanted it to be simple to write posts, but I didn't
+						want to rely on any dependencies to introduce that
+						simplicity. (Why, you ask? Because I can't think of a
+						better way to practice writing HTML than... writing
+						HTML.)
+					</li>
+					<li>
+						I wanted complete creative freedom in the visual design
+						of the site. No stealing other people's components!
+					</li>
 				</ol>
-			</p>
 
-			<p>
-				Requirements 1 through 3 were pretty easy to satisfy using <a href="https://pages.github.com">GitHub Pages</a>. Sites hosted on GitHub Pages are static, so there's no need to fuss with a web server, and even though GitHub Pages supports <a href="https://jekyllrb.com">Jekyll</a>, which reduces blogging to writing Markdown files, I'm not required to use it. (Of course, I can easily change my mind on that later if I want.)
-			</p>
+				<p>
+					Requirements 1 through 3 were pretty easy to satisfy using
+					<a href="https://pages.github.com">GitHub Pages</a>. Sites
+					hosted on GitHub Pages are static, so there's no need to
+					fuss with a web server, and even though GitHub Pages
+					supports <a href="https://jekyllrb.com">Jekyll</a>, which
+					reduces blogging to writing Markdown files, I'm not required
+					to use it. (Of course, I can easily change my mind on that
+					later if I want.)
+				</p>
 
-			<h3>Visual Design</h3>
-			<p>
-				Next up was the initial stab at a design. I wanted something bold and modern, but not too flashy. On top of that, because I constantly suffer from eye strain from looking at screens all day, I wanted a darker theme by default.
-			</p>
+				<h2>Visual Design</h2>
+				<p>
+					Next up was the initial stab at a design. I wanted something
+					bold and modern, but not too flashy. On top of that, because
+					I constantly suffer from eye strain from looking at screens
+					all day, I wanted a darker theme by default.
+				</p>
 
-			<h4>Typography</h4>
-			<p>
-				This being a blog, I'd argue that the most important thing about its design is the choice of typefaces. I opted to set headings in <a href="https://fonts.google.com/specimen/Work+Sans">Work Sans</a> and everything else in <a href="https://fonts.google.com/specimen/Lato">Lato</a>. Not only do I think they pair well together visually, I think their very <em>names</em> were meant to be paired&mdash;"<span lang="pl">Lato</span>" means "summer" in Polish, and everyone knows that summer is the best time to go sans work!
-			</p>
-			<figure>
-				<div style="padding: 1rem;">
-					<div>
-							<span style="font-family: Work Sans; font-size: 2rem;">Headings</span>
-							<span class="label" aria-label="1rem to 2rem" style="padding-left: 2ch;"">Work Sans, 1rem&ndash;2rem</span>
+				<h3>Typography</h3>
+				<p>
+					This being a blog, I'd argue that the most important thing
+					about its design is the choice of typefaces. I opted to set
+					headings in
+					<a href="https://fonts.google.com/specimen/Work+Sans"
+						>Work Sans</a
+					>
+					and everything else in
+					<a href="https://fonts.google.com/specimen/Lato">Lato</a>.
+					Not only do I think they pair well together visually, I
+					think their very <em>names</em> were meant to be
+					paired&mdash;"<span lang="pl">Lato</span>" means "summer" in
+					Polish, and everyone knows that summer is the best time to
+					go sans work!
+				</p>
+				<figure>
+					<div style="padding: 1rem;">
+						<div>
+							<span
+								style="font-family: Work Sans; font-size: 2rem;"
+								>Headings</span
+							>
+							<span
+								class="label"
+								aria-label="1rem to 2rem"
+								style="padding-left: 2ch;"
+								>Work Sans, 1rem&ndash;2rem</span
+							>
 						</div>
 						<div>
 							<span style="font-family: Lato">Body text</span>
-							<span class="label" style="padding-left: 2ch;">Lato, 1rem</span>
+							<span class="label" style="padding-left: 2ch;"
+								>Lato, 1rem</span
+							>
 						</div>
-				</div>
-				<figcaption>Basic font variants for the site (1rem = 20px)</figcaption>
-			</figure>
-			<p>
-				I sometimes <a href="https://blog.marvelapp.com/body-text-small/">struggle</a> to read smaller body fonts, so I went with a default font size of 20px for desktop, scaling down to 16px for small mobile screens.
-			</p>
-			<p>
-				In <cite><a href="http://webtypography.net/2.1.2">The Elements of Typographic Style</a></cite>, Robert Bringhurst says, <q>Anything from 45 to 75 characters is widely regarded as a satisfactory length of line for a single-column page... The 66-character line (counting both letters and spaces) is widely regarded as ideal.</q> Here, I've gone with 65-character line lengths in the average desktop case.
-			</p>
+					</div>
+					<figcaption>
+						Basic font variants for the site (1rem = 20px)
+					</figcaption>
+				</figure>
+				<p>
+					I sometimes
+					<a href="https://blog.marvelapp.com/body-text-small/"
+						>struggle</a
+					>
+					to read smaller body fonts, so I went with a default font
+					size of 20px for desktop, scaling down to 16px for small
+					mobile screens.
+				</p>
+				<p>
+					In
+					<cite
+						><a href="http://webtypography.net/2.1.2"
+							>The Elements of Typographic Style</a
+						></cite
+					>, Robert Bringhurst says,
+					<q
+						>Anything from 45 to 75 characters is widely regarded as
+						a satisfactory length of line for a single-column
+						page... The 66-character line (counting both letters and
+						spaces) is widely regarded as ideal.</q
+					>
+					Here, I've gone with 65-character line lengths in the
+					average desktop case.
+				</p>
 
-			<h4>Color</h4>
-			<p>
-				However overplayed you think the mid-century modern era is these days, I'm still a big fan of designers like Charles and Ray Eames, especially their unabashed use of bright, primary colors. So I took a page from their book and chose a primary color palette for the site, centering on the links in the page <code>nav</code>. I opted for high-saturation variants on the standard yellow and blue, to dial things up a notch. Primary colors also happen to pop against the darker backdrop I wanted for the site, without detrimental effects on contrast.
-			</p>
-			<figure>
-				<div class="color-swatch-container">
-					<div class="color-swatch" data-color="hsl(50, 96%, 45%)" style="color: hsl(210, 25%, 12%); background-color: hsl(50, 96%, 45%);">
-						--accent-primary
+				<h3>Color</h3>
+				<p>
+					However overplayed you think the mid-century modern era is
+					these days, I'm still a big fan of designers like Charles
+					and Ray Eames, especially their unabashed use of bright,
+					primary colors. So I took a page from their book and chose a
+					primary color palette for the site, centering on the links
+					in the page <code>nav</code>. I opted for high-saturation
+					variants on the standard yellow and blue, to dial things up
+					a notch. Primary colors also happen to pop against the
+					darker backdrop I wanted for the site, without detrimental
+					effects on contrast.
+				</p>
+				<figure>
+					<div class="color-swatch-container">
+						<div
+							class="color-swatch"
+							data-color="hsl(50, 96%, 45%)"
+							style="color: hsl(210, 25%, 12%); background-color: hsl(50, 96%, 45%);"
+						>
+							--accent-primary
+						</div>
+						<div
+							class="color-swatch"
+							data-color="hsl(232, 90%, 54%)"
+							style="color: white; background-color: hsl(232, 90%, 54%);"
+						>
+							--accent-secondary
+						</div>
+						<div
+							class="color-swatch"
+							data-color="hsl(210, 25%, 12%)"
+							style="color: white; background-color: hsl(210, 25%, 12%);"
+						>
+							--background
+						</div>
 					</div>
-					<div class="color-swatch" data-color="hsl(232, 90%, 54%)" style="color: white; background-color: hsl(232, 90%, 54%);">
-						--accent-secondary
-					</div>
-					<div class="color-swatch" data-color="hsl(210, 25%, 12%)" style="color: white; background-color: hsl(210, 25%, 12%);">
-						--background
-					</div>
-				</div>
-				<figcaption>Basic color palette for the site</figcaption>
-			</figure>
-			<p>
-				Once I settled on the colors, I started introducing them to several of the main elements of a page: think list bullets, horizontal rules, quotes and citations, borders of callout sections, and so on. You can check out this <a href="/blog/blog-post-testbench/">testbench page</a> to see all the examples.
-			</p>
-			<p>
-				In case I decide to change the color scheme or add a theme for viewers to choose from, I chose to codify the colors using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">CSS variables</a>. Unlike Sass variables, CSS variables are subject to the cascade, which makes it super easy to invert the background and primary accent colors in the footer.
-			</p>
+					<figcaption>Basic color palette for the site</figcaption>
+				</figure>
+				<p>
+					Once I settled on the colors, I started introducing them to
+					several of the main elements of a page: think list bullets,
+					horizontal rules, quotes and citations, borders of callout
+					sections, and so on. You can check out this
+					<a href="/blog/blog-post-testbench/">testbench page</a> to
+					see all the examples.
+				</p>
+				<p>
+					In case I decide to change the color scheme or add a theme
+					for viewers to choose from, I chose to codify the colors
+					using
+					<a
+						href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables"
+						>CSS variables</a
+					>. Unlike Sass variables, CSS variables are subject to the
+					cascade, which makes it super easy to invert the background
+					and primary accent colors in the footer.
+				</p>
 
-			<h4>Motion</h4>
-			<p>
-				<img src="link-underline.gif" alt="Link behavior on hover" class="float-right" />
-				I also wanted a little bit of motion for the site's few interactive elements. Again, this mostly affects links, so I swapped out the standard user agent underlines for a thicker <code>box-shadow</code>, which I could animate partially underneath the link when it was hovered over or focused on:
-				
-			</p>
-			
-			<pre data-lang="SCSS">
+				<h3>Motion</h3>
+				<p>
+					<img
+						src="link-underline.gif"
+						alt="Link behavior on hover"
+						class="float-right"
+					/>
+					I also wanted a little bit of motion for the site's few
+					interactive elements. Again, this mostly affects links, so I
+					swapped out the standard user agent underlines for a thicker
+					<code>box-shadow</code>, which I could animate partially
+					underneath the link when it was hovered over or focused on:
+				</p>
+
+				<pre data-lang="SCSS" class="language-scss">
 <code>a {
 	// Remove native underline, and replace with box shadow
 	text-decoration: none;
@@ -128,47 +259,56 @@
 	}
 }</code></pre>
 
-			<h4>Reading Experience</h4>
-			<p>
-				Since this is a blog, I think it's important that I do whatever I can to make it easier to <em>read</em> the blog posts! So I've added a couple of JavaScript-powered features to orient readers while they read a post. You can see both features on this page, if you have JavaScript enabled&mdash;but they're both progressive enhancements, so they won't impede the site or muck up the HTML if you have JavaScript disabled.
-			</p>
-			<p>
-				The first is an estimate of the length of each post. This is a pretty rudimentary estimate: I calculate how many words are in a post, then use that to figure out how long it would take to read <a href="https://en.wikipedia.org/wiki/Words_per_minute#Reading_and_comprehension">assuming</a> that the average adult English speaker reads at about 200 words per minute. I show that calculation just below the post's title.
-			</p>
-			<p>
-				The other feature is a bar at the top of the page that indicates how far along you've scrolled in a post. Again, this is pretty simple. First I determine how tall the page is <em>below the fold</em> (i.e., how many pixels there are between the bottom of the viewport and the bottom of the page). Then as you scroll the page or resize the window, I determine how far the top of the page has been scrolled and update the width of the progress bar at the top of the page to indicate the proportion of the page you've scrolled through.
-			</p>
+				<h3>Reading Experience</h3>
+				<p>
+					Since this is a blog, I think it's important that I do
+					whatever I can to make it easier to <em>read</em> the blog
+					posts! So I've added a couple of JavaScript-powered features
+					to orient readers while they read a post. You can see both
+					features on this page, if you have JavaScript
+					enabled&mdash;but they're both progressive enhancements, so
+					they won't impede the site or muck up the HTML if you have
+					JavaScript disabled.
+				</p>
+				<p>
+					The first is an estimate of the length of each post. This is
+					a pretty rudimentary estimate: I calculate how many words
+					are in a post, then use that to figure out how long it would
+					take to read
+					<a
+						href="https://en.wikipedia.org/wiki/Words_per_minute#Reading_and_comprehension"
+						>assuming</a
+					>
+					that the average adult English speaker reads at about 200
+					words per minute. I show that calculation just below the
+					post's title.
+				</p>
+				<p>
+					The other feature is a bar at the top of the page that
+					indicates how far along you've scrolled in a post. Again,
+					this is pretty simple. First I determine how tall the page
+					is <em>below the fold</em> (i.e., how many pixels there are
+					between the bottom of the viewport and the bottom of the
+					page). Then as you scroll the page or resize the window, I
+					determine how far the top of the page has been scrolled and
+					update the width of the progress bar at the top of the page
+					to indicate the proportion of the page you've scrolled
+					through.
+				</p>
 
-			<h3>What's Ahead</h3>
-			<p>
-				In the coming weeks, I'll add details to the <a href="/projects/">Projects</a> page. As I write more posts, I'm sure I'll also tweak styles a bit.
-			</p>
-			<p>Happy reading!</p>
-		</article>
-	</main>
+				<h2>What's Ahead</h2>
+				<p>
+					In the coming weeks, I'll add details to the
+					<a href="/projects/">Projects</a> page. As I write more
+					posts, I'm sure I'll also tweak styles a bit.
+				</p>
+				<p>Happy reading!</p>
+			</article>
+		</main>
 
-	<footer id="contact">
-		<h2 class="contact-header">Contact</h2>
-		<div class="footer__inner">
-			<address class="contact-grid">
-				<div>
-					<div class="label">Phone</div>
-					<a href="tel:+16086225011">(608) 622-5011</a>
-				</div>
-				<div>
-					<div class="label">Email</div>
-					<a href="mailto:elihowey@gmail.com">elihowey@gmail.com</a>
-				</div>
-				<div>
-					<div class="label">Twitter</div>
-					<a href="https://twitter.com/elihowey">@elihowey</a>
-				</div>
-			</address>
-			<div class="footer__misc-info">
-				<div class="label">&copy; 2019 Eli Howey</div>
-				<a href="#">Back to top</a>
-			</div>
-		</div>
-	</footer>
-</body>
+		<footer>
+			<div class="label">&copy; 2019 Eli Howey</div>
+			<a href="#">Back to top</a>
+		</footer>
+	</body>
 </html>

@@ -2,6 +2,5 @@
 node_modules/**
 package.json
 package-lock.json
-blog/blog-post-test/dolphin.jpg
-blog/blog-post-test/index.html
 blog/blog-post-template.html
+blog/blog-post-testbench/**

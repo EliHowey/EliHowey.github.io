@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<title>Blog Post Testbench - Blog - Eli Howey</title>
-		<meta name="description" content="The personal blog of Eli Howey">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta charset="UTF-8">
+	<title>Blog Post Testbench - Blog - Eli Howey</title>
+	<meta name="description" content="The personal blog of Eli Howey">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8">
+
+	<!-- Prism (for code formatting) -->
+	<link rel="stylesheet" href="../../styles/prism-dracula.css" />
+	<script type="module" src="../../scripts/prism.js"></script>
+
 	<link rel="stylesheet" href="../../styles/blog-post.css" />
 	<script type="module" src="../../scripts/blog-post.js"></script>
 </head>
 <body>
-	<a href="#content" visually-hidden>Skip to content</a>
+	<a id="skip-to-content-link" href="#content" class="visually-hidden">Skip to content</a>
 	<header>
-		<div>
-			<h1><a href="/">Eli Howey</a></h1>
-			<nav>
-				<ul>
-					<li><a href="/projects/">Projects</a></li>
-					<li><a href="/blog/">Blog</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
-		</div>
+		<nav>
+			<h1 class="homepage-link"><a href="/">Eli Howey</a></h1>
+			<ul>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<main id="content">
 		<article id="blog-post">
 			<header id="blog-post-header">
 				<h2>Blog Post Testbench</h2>
-				<time datetime="2019-02-27T11:59:56-06:00" class="label">February 27, 2019</time>
-			</header>
+				<time is="blog-post-timestamp" datetime="2019-02-27T11:59:56-06:00" class="label">
+					February 27, 2019
+				</time></header>
 			
 			<p>
 				This page acts as a playground to test the formatting of blog posts. Each section below tests different aspects of the design. In general, keep an eye out for changes in spacing, font weights, colors, and semantic relationships like relative sizing.
@@ -38,6 +42,7 @@
 			<h3>Paragraphs</h3>
 			<p>This is a paragraph. It contains some text.</p>
 			<p>This is another paragraph. It also contains some text, but this text is likely to wrap onto a new line. There should be adequate space between this paragraph and the one preceding it.</p>
+			<p>This text <a href="#">contains a link</a>. It should render reasonably well.</p>
 
 			<h3>Headings</h3>
 			<p>This section tests the size and spacing of headings. The heading of this section is a level-3 heading.</p>
@@ -77,18 +82,56 @@
 			</p>
 
 			<p>The following is a block of code:</p>
-			<pre><code>
-var fn = function() {
-	console.log('Hello world!');
+			<pre class="language-none"><code>import { module } from "./path/to/module";
+
+window.addEventListener("load", () => {
+	console.log(primitives());
+});
+
+/**
+* This is a multiline comment.
+* It has multiple lines.
+*/
+function primitives() {
+	var I_AM_A_CONSTANT = 4;
+	let boolean = true;
+	let regex = /[A-Za-z0-9]?/;
+	return 'Hello world!';
 }
-			</code></pre>
+
+class ThisIsAClass {
+	property;
+
+	constructor(value) {
+		this.property = value;
+	}
+}</code></pre>
 
 			<p>And the same block of code, but this time we specify that it's JavaScript code:</p>
-			<pre data-lang="JavaScript"><code>
-var fn = function() {
-	console.log('Hello world!');
+			<pre data-lang="JavaScript" class="language-js"><code>import { module } from "./path/to/module";
+
+window.addEventListener("load", () => {
+	console.log(primitives());
+});
+
+/**
+* This is a multiline comment.
+* It has multiple lines.
+*/
+function primitives() {
+	var I_AM_A_CONSTANT = 4;
+	let boolean = true;
+	let regex = /[A-Za-z0-9]?/;
+	return 'Hello world!';
 }
-			</code></pre>
+
+class ThisIsAClass {
+	property;
+
+	constructor(value) {
+		this.property = value;
+	}
+}</code></pre>
 
 			<h3>Horizontal Rules</h3>
 			<p>
@@ -169,28 +212,9 @@ var fn = function() {
 		</article>
 	</main>
 
-	<footer id="contact">
-		<h2 class="contact-header">Contact</h2>
-		<div class="footer__inner">
-			<address class="contact-grid">
-				<div>
-					<div class="label">Phone</div>
-					<a href="tel:+16086225011">(608) 622-5011</a>
-				</div>
-				<div>
-					<div class="label">Email</div>
-					<a href="mailto:elihowey@gmail.com">elihowey@gmail.com</a>
-				</div>
-				<div>
-					<div class="label">Twitter</div>
-					<a href="https://twitter.com/elihowey">@elihowey</a>
-				</div>
-			</address>
-			<div class="footer__misc-info">
-				<div class="label">&copy; 2019 Eli Howey</div>
-				<a href="#">Back to top</a>
-			</div>
-		</div>
+	<footer>
+		<div class="label">&copy; 2019 Eli Howey</div>
+		<a href="#">Back to top</a>
 	</footer>
 </body>
 </html>

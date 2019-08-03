@@ -1,8 +1,7 @@
-@import './shared';
+@import "./shared";
 
 body {
 	grid-template-columns: 1fr;
-	grid-template-areas: "main" "footer";
 	grid-gap: 0;
 }
 
@@ -13,14 +12,8 @@ main {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-}
 
-nav ul {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-
-	& li:not(:last-child) {
-		padding-right: 1em;
+	> * {
+		font-size: 3rem;
 	}
 }

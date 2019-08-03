@@ -1,0 +1,122 @@
+/**
+* Dracula Theme originally by Zeno Rocha [@zenorocha]
+* https://draculatheme.com/
+*
+* Ported for PrismJS by Albert Vallverdu [@byverdu]
+*
+* Further modified here by Eli Howey
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: var(--on-background);
+	text-align: left;
+	white-space: pre-wrap;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	color: var(--on-code-background);
+	background-color: var(--code-background);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: 0.1em;
+	border-radius: 0.3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation {
+	color: var(--label);
+}
+
+.namespace {
+	opacity: 0.7;
+}
+
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.selector {
+	color: var(--on-code-background);
+}
+
+.token.property {
+	color: hsl(39, 100%, 45%);
+}
+
+.token.boolean,
+.token.number {
+	color: hsl(39, 100%, 45%);
+}
+
+.token.attr-name,
+.token.string,
+.token.regex,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: hsl(135, 100%, 30%);
+}
+
+// .token.operator,
+// .token.entity,
+// .token.url,
+// .language-css .token.string,
+// .style .token.string,
+// .token.variable {
+// 	color: hsl(39, 100%, 50%);
+// }
+
+// .token.atrule,
+// .token.attr-value,
+.token.function,
+.token.class-name {
+	color: hsl(261, 44%, 64%);
+}
+
+.token.atrule,
+.token.keyword,
+.token.parameter {
+	color: hsl(234, 55%, 52%);
+}
+
+.token.important {
+	color: hsl(9, 100%, 61%);
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}

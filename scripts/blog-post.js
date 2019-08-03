@@ -5,9 +5,16 @@
   Copyright 2019
 */
 
-import { BlogPostProgressBar } from "./modules/blog-post-progress.mjs";
+import { BlogPostTimestamp } from './components/blog-post-timestamp.component.mjs';
 import { BlogPostLengthMessage } from "./modules/blog-post-length.mjs";
+import { BlogPostProgressBar } from "./modules/blog-post-progress.mjs";
 import { debounce } from "./modules/debounce.mjs";
+
+customElements.define(
+	'blog-post-timestamp',
+	BlogPostTimestamp,
+	{ extends: 'time' }
+);
 
 window.addEventListener("load", () => {
 	addBlogPostLength();

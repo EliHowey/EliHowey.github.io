@@ -5,7 +5,11 @@
 	Copyright 2019
 */
 
-@import './shared';
+@import "./shared";
+
+li {
+	list-style: none;
+}
 
 .blog-post {
 	$post-title-font-size: 1.5rem;
@@ -30,37 +34,9 @@
 		display: block;
 		position: absolute;
 		z-index: 0;
-		content: '';
+		content: "";
 		background-color: var(--on-background);
 		transition: background-color 150ms ease;
-	}
-
-	// Bar before each blog post
-	&::before {
-		top: 0;
-		bottom: 0;
-		left: -10px;
-		width: 4px;
-	}
-
-	&:hover::before {
-		background-color: var(--accent-primary);
-	}
-
-	// Point next to each post's title
-	&::after {
-		box-sizing: content-box;
-		top: calc(#{$post-title-font-size} + 0.25em);
-		left: calc(-1 * #{$post-title-font-size} / 4 - 10px);
-		height: $post-title-font-size / 2;
-		width: $post-title-font-size / 2;
-		border: 2px solid var(--on-background);
-		border-radius: 50%;
-		background-color: var(--background);
-	}
-
-	&:hover::after {
-		background-color: var(--accent-secondary);
 	}
 }
 

@@ -5,30 +5,30 @@
   Copyright 2019
 */
 
-/* Generate the list of blog posts from the data in posts.json */
-window.addEventListener("load", () => {
-	fetch("../blog/posts.json")
-		.then((response) => { return response.json(); })
-		.then((data) => {
-			const blogPosts = new BlogPostList(data);
-			const mainEl = document.getElementById("content");
-			mainEl.appendChild(blogPosts.createElement());
-		})
-		.catch((err) => {
-			alert(err);
-		});
+import { BlogPostTimestamp } from "./components/blog-post-timestamp.component.mjs";
 
+customElements.define("blog-post-timestamp", BlogPostTimestamp, {
+	extends: "time"
+});
+
+/* Generate the list of blog posts from the data in posts.json */
+window.addEventListener("load", async () => {
+	try {
+		const postJson = await fetch("../blog/posts.json");
+		const postData = await postJson.json();
+
+		const blogPosts = new BlogPostList(postData);
+		const mainEl = document.getElementById("content");
+		mainEl.appendChild(blogPosts.createElement());
+	} catch (err) {
+		alert(`Error fetching blog posts: ${err}`);
+	}
 });
 
 class BlogPostList {
 	constructor(json) {
-		this.posts = [];
-
-		const postData = json.posts;
-
-		postData.forEach((postMetadata) => {
-			const post = new BlogPostLink(postMetadata);
-			this.posts.push(post);
+		this.posts = json.posts.map((postData) => {
+			return new BlogPostLink(postData);
 		});
 	}
 
@@ -36,12 +36,12 @@ class BlogPostList {
 		const listEl = document.createElement("ul");
 		listEl.classList.add("blog-posts");
 
-		this.posts.forEach((post) => {
+		this.posts.forEach(post => {
 			const postEl = post.createElement();
 			if (postEl) {
 				listEl.appendChild(postEl);
 			}
-		})
+		});
 
 		return listEl;
 	}
@@ -54,7 +54,9 @@ class BlogPostLink {
 		this.description = postObj.description || "";
 		this.isHidden = postObj.isHidden ? postObj.isHidden : false;
 
-		const dateTimeString = postObj.timePosted ? `${postObj.datePosted}T${postObj.timePosted}` : postObj.datePosted;
+		const dateTimeString = postObj.timePosted
+			? `${postObj.datePosted}T${postObj.timePosted}`
+			: postObj.datePosted;
 		const datePosted = new Date(dateTimeString);
 		if (datePosted instanceof Date && !isNaN(datePosted)) {
 			this.dateTime = dateTimeString;
@@ -69,33 +71,19 @@ class BlogPostLink {
 
 		const listEl = document.createElement("li");
 		listEl.classList.add("blog-post");
-
-		const titleEl = document.createElement("h3");
-		if (this.href) {
-			const linkEl = document.createElement("a");
-			linkEl.href = this.href;
-			linkEl.innerText = this.title;
-			titleEl.appendChild(linkEl);
-		}
-		else {
-			titleEl.innerText = this.title;
-		}
-		listEl.appendChild(titleEl);
-
+		listEl.innerHTML = `
+			<h3>
+				${this.href ? `<a href=${this.href}>${this.title}</a>` : this.title}
+			</h3>`;
+		
 		if (this.description) {
-			const descriptionEl = document.createElement("p");
-			descriptionEl.innerText = this.description;
-			listEl.appendChild(descriptionEl);
+			listEl.innerHTML += `<p>${this.description}</p>`;
 		}
 
 		if (this.dateTime) {
-			const timestampEl = document.createElement("time");
-			timestampEl.dateTime = this.dateTime;
-			timestampEl.classList.add("label");
-			timestampEl.innerText = this.formattedDate;
-			listEl.appendChild(timestampEl);
+			listEl.innerHTML += `<time is='blog-post-timestamp' datetime='${this.dateTime}' class='label'>${this.formattedDate}</time>`;
 		}
-		
+
 		return listEl;
 	}
 }

@@ -1,6 +1,7 @@
 export class BlogPostTimestamp extends HTMLTimeElement {
 	constructor() {
 		super();
+		
 		this.absoluteDateFormatter = new Intl.DateTimeFormat('en-US', {
 			weekday: 'long',
 			year: 'numeric',

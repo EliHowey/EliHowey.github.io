@@ -19,7 +19,9 @@
 		<script type="module" src="../../scripts/blog-post.js"></script>
 	</head>
 	<body>
-		<a id="skip-to-content-link" href="#content" class="visually-hidden">Skip to content</a>
+		<a id="skip-to-content-link" href="#content" class="visually-hidden"
+			>Skip to content</a
+		>
 		<header>
 			<nav>
 				<h1 class="homepage-link"><a href="/">Eli Howey</a></h1>
@@ -32,6 +34,10 @@
 		</header>
 
 		<main id="content">
+			<progress
+				is="blog-post-progress-bar"
+				id="article-progress-bar"
+			></progress>
 			<article id="blog-post">
 				<header id="blog-post-header">
 					<h1>Welcome to elihowey.com!</h1>
@@ -41,6 +47,7 @@
 						class="label"
 						>March 5, 2019</time
 					>
+					<blog-post-length class="label"></blog-post-length>
 				</header>
 
 				<p>

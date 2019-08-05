@@ -471,7 +471,7 @@ progress::-moz-progress-bar {
   width: 100vw;
 }
 
-#blog-post-length-estimate::before {
+blog-post-length::before {
   content: "•";
   padding: 0 1ch;
 }

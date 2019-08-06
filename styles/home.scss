@@ -10,10 +10,12 @@ main {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
-	align-items: center;
-	text-align: center;
 
 	> * {
 		font-size: 3rem;
+
+		@media (max-width: 540px) {
+			font-size: 2rem;
+		}
 	}
 }

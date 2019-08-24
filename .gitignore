@@ -4,3 +4,4 @@ package.json
 package-lock.json
 blog/blog-post-template.html
 blog/blog-post-testbench/**
+.vscode/settings.json

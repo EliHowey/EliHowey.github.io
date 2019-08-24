@@ -6,23 +6,21 @@ $inline-element-padding: 0.1em;
 :root {
 	/* Helper Colors */
 	--gray-dark: hsl(210, 25%, 12%);
-	--gray-light: hsl(0, 0%, 50%);
 	--white: hsl(0, 0%, 100%);
 
 	/* Neutrals */
 	--background: var(--white);
 	--on-background: var(--gray-dark);
 
-	--focus-outline: hotpink;
-	--focus-background: hsl(55, 100%, 50%);
-	--on-focus-background: var(--gray-dark);
+	--link-background--1: hotpink;
+	--link-background--2: hsl(55, 100%, 50%);
 
 	--code-background: hsl(240, 14%, 97%);
 	--on-code-background: hsl(357, 62%, 56%);
 
 	--highlight-background: hsl(56, 100%, 68%);
 
-	--label: var(--gray-light);
+	--label: hsl(0, 0%, 60%);
 
 	/* Font Scale (Harmonic) */
 	--font-scale: 1.15;
@@ -40,6 +38,9 @@ $inline-element-padding: 0.1em;
 	:root {
 		--background: var(--gray-dark);
 		--on-background: var(--white);
+
+		--link-background--1: hsl(55, 100%, 50%);
+		--link-background--2: hotpink;
 
 		--code-background: hsl(240, 12%, 3%);
 		--on-code-background: hsl(357, 62%, 56%);
@@ -151,19 +152,50 @@ nav li {
 
 /* Links */
 a {
-	color: inherit;
-	transition: background-color 100ms linear;
+	padding: 0.05em;
+	color: var(--link-background--1);
+	text-decoration: none;
+
+	/* Underline replacement with hover & focus effect */
+	$background-size-y--1: 0.05em;
+	$background-size-y--2: 30%;
+
+	background-clip: border-box;
+	background-repeat: no-repeat;
+	background-image: 
+		linear-gradient(
+			to right,
+			var(--link-background--1),
+			var(--link-background--1)
+		),
+		linear-gradient(
+			to right,
+			var(--link-background--2),
+			var(--link-background--2)
+		);
+	background-position:
+		100% 100%,
+		-100% 100%;
+	background-size: 
+		100% $background-size-y--1,
+		0% $background-size-y--2;
+
+	transition-property: background-position, background-size;
+	transition-duration: 350ms;
+	transition-timing-function: ease-out;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 
 	&:hover,
 	&:focus {
-		text-decoration-color: var(--focus-outline);
-		color: var(--on-focus-background);
-		background-color: var(--focus-background);
-	}
-
-	&:focus {
-		outline: 2px dotted var(--focus-outline);
-		text-decoration-color: var(--focus-background);
+		background-position:
+			200% 100%,
+			0% 100%;
+		background-size:
+			0% $background-size-y--1,
+			100% $background-size-y--2;
 	}
 }
 
@@ -179,6 +211,7 @@ a {
 }
 
 #skip-to-content-link:focus {
+	transition: none;
 	box-sizing: content-box;
 	height: unset;
 	width: unset;
@@ -186,7 +219,6 @@ a {
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 0.5em 1em;
-	border-radius: 0 0 0.5em 0.5em;
 }
 
 /* Semantic Markers */

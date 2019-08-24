@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			{{ page.title }} - Blog - Eli Howey
+		</title>
+		<meta name="description" content="{{ page.description }}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta charset="UTF-8" />
+
+		<!-- Prism (for code formatting) -->
+		<link rel="stylesheet" href="/dist/styles/prism-dracula.min.css" />
+		<script type="module" src="/dist/scripts/prism.js"></script>
+
+		<link rel="stylesheet" href="/dist/styles/blog-post.min.css" />
+		<script type="module" src="/dist/scripts/blog-post.js"></script>
+	</head>
+	<body>
+		<a id="skip-to-content-link" href="#content" class="visually-hidden"
+			>Skip to content</a
+		>
+		<header>
+			<nav>
+				<h1 class="homepage-link"><a href="/">Eli Howey</a></h1>
+				<ul>
+					<li><a href="/projects">Projects</a></li>
+					<li><a href="/blog">Blog</a></li>
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="content">
+			<progress
+				is="blog-post-progress-bar"
+				id="article-progress-bar"
+			></progress>
+			<article id="blog-post">
+				<header id="blog-post-header">
+					<h2>{{ page.title }}</h2>
+					<time is="blog-post-timestamp" datetime="{{ page.date }}" class="label"
+						>{{ page.date | date_to_string }}</time
+					>
+					<blog-post-length class="label"></blog-post-length>
+				</header>
+
+				{{ content }}
+			</article>
+		</main>
+
+		<footer>
+			<div class="label">&copy; 2019 Eli Howey</div>
+			<a href="#">Back to top</a>
+		</footer>
+	</body>
+</html>

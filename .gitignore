@@ -4,5 +4,6 @@ package.json
 package-lock.json
 
 # Templates and Testing
+_site/
 blog/template/
 blog/blog-post-testbench/

@@ -1,2 +1,3 @@
 name: Eli Howey
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title

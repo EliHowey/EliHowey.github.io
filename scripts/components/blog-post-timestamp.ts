@@ -1,4 +1,7 @@
 export class BlogPostTimestamp extends HTMLTimeElement {
+	private absoluteDateFormatter: Intl.DateTimeFormat;
+	private relativeDateFormatter: Intl.RelativeTimeFormat;
+
 	constructor() {
 		super();
 		
@@ -12,7 +15,7 @@ export class BlogPostTimestamp extends HTMLTimeElement {
 	}
 
 	connectedCallback() {
-		let relativeDateString;
+		let relativeDateString: string;
 
 		const postDate = Date.parse(this.dateTime);
 

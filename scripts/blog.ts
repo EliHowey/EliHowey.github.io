@@ -5,7 +5,7 @@
   Copyright 2019
 */
 
-import { BlogPostTimestamp } from "./components/blog-post-timestamp.component.mjs";
+import { BlogPostTimestamp } from "./components/blog-post-timestamp.js";
 
 customElements.define("blog-post-timestamp", BlogPostTimestamp, {
 	extends: "time"
@@ -19,14 +19,31 @@ window.addEventListener("load", async () => {
 
 		const blogPosts = new BlogPostList(postData);
 		const mainEl = document.getElementById("content");
-		mainEl.appendChild(blogPosts.createElement());
+		if (mainEl) {			
+			mainEl.appendChild(blogPosts.createElement());
+		}
 	} catch (err) {
 		alert(`Error fetching blog posts: ${err}`);
 	}
 });
 
+interface PostMetadata {
+	href: string,
+	title: string,
+	description: string,
+	datePosted: string,
+	timePosted: string,
+	isHidden?: boolean
+}
+
+interface PostJSON extends JSON {
+	posts: PostMetadata[];
+}
+
 class BlogPostList {
-	constructor(json) {
+	private posts: BlogPostLink[];
+
+	constructor(json: PostJSON) {
 		this.posts = json.posts.map((postData) => {
 			return new BlogPostLink(postData);
 		});
@@ -48,7 +65,15 @@ class BlogPostList {
 }
 
 class BlogPostLink {
-	constructor(postObj) {
+	private title: string;
+	private href: string;
+	private description: string;
+	private isHidden: boolean;
+
+	private dateTime?: string;
+	private formattedDate?: string;
+
+	constructor(postObj: PostMetadata) {
 		this.title = postObj.title || "<No title>";
 		this.href = postObj.href || "";
 		this.description = postObj.description || "";
@@ -58,7 +83,7 @@ class BlogPostLink {
 			? `${postObj.datePosted}T${postObj.timePosted}`
 			: postObj.datePosted;
 		const datePosted = new Date(dateTimeString);
-		if (datePosted instanceof Date && !isNaN(datePosted)) {
+		if (datePosted instanceof Date) {
 			this.dateTime = dateTimeString;
 			this.formattedDate = datePosted.toLocaleDateString();
 		}

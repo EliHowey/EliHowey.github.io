@@ -5,9 +5,9 @@
   Copyright 2019
 */
 
-import { BlogPostLength } from "./components/blog-post-length.component.mjs";
-import { BlogPostProgressBar } from "./components/blog-post-progress-bar.component.mjs";
-import { BlogPostTimestamp } from "./components/blog-post-timestamp.component.mjs";
+import { BlogPostLength } from "./components/blog-post-length.js";
+import { BlogPostProgressBar } from "./components/blog-post-progress-bar.js";
+import { BlogPostTimestamp } from "./components/blog-post-timestamp.js";
 
 customElements.define("blog-post-timestamp", BlogPostTimestamp, {
 	extends: "time"

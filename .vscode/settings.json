@@ -1,11 +1,6 @@
 {
 	"liveSassCompile.settings.formats": [
 		{
-			"format": "expanded",
-			"extensionName": ".css",
-			"savePath": null
-		},
-		{
 			"format": "compressed",
 			"extensionName": ".min.css",
 			"savePath": "/dist/styles"
@@ -14,5 +9,9 @@
 	"liveSassCompile.settings.autoprefix": [
 		"> 1%",
 		"last 2 versions"
-	]
+	],
+	"search.exclude": {
+		"**/*.js: {\"when\": \"$(basename).ts\"}": true,
+		"**/*.js.map: {\"when\": \"$(basename).ts\"}": true
+	}
 }

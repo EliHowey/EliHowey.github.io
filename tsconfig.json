@@ -1,0 +1,16 @@
+{
+	"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es6",
+		"module": "es6",
+		"sourceMap": true,
+		"outDir": "dist/scripts",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"pretty": true,
+		"strict": true
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

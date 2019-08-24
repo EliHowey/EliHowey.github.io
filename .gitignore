@@ -1,7 +1,11 @@
-.eslintrc.json
+# Config files
+.*
+
+# Node modules
 node_modules/**
 package.json
 package-lock.json
-blog/blog-post-template.html
-blog/blog-post-testbench/**
-.vscode/settings.json
+
+# Templates and Testing
+blog/template/
+blog/blog-post-testbench/

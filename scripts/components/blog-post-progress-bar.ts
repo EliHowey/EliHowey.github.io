@@ -15,7 +15,7 @@ export class BlogPostProgressBar extends HTMLProgressElement {
 	_updateMaxValue() {
 		const docEl = document.documentElement;
 		const scrollablePostHeight = docEl.scrollHeight - docEl.clientHeight;
-		this.setAttribute("max", scrollablePostHeight);
+		this.setAttribute("max", scrollablePostHeight.toString());
 	}
 
 	_updateProgress() {
@@ -23,6 +23,6 @@ export class BlogPostProgressBar extends HTMLProgressElement {
 			document.documentElement.scrollTop ||
 			document.body.scrollTop ||
 			window.scrollY;
-		this.setAttribute("value", scrollPosition);
+		this.setAttribute("value", scrollPosition.toString());
 	}
 }

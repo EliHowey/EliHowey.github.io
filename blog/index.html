@@ -1,7 +1,10 @@
 ---
 layout: default
+stylesheet_path: "/dist/styles/blog.min.css"
+script_path: "/dist/scripts/blog.js"
 title: Blog
 ---
+
 <ul class="blog-posts">
 	{% for post in site.posts %}
 	<li class="blog-post">
@@ -12,7 +15,7 @@ title: Blog
 		{% endif %}
 
 		{% if post.date %}
-		<time is="blog-post-timestamp" datetime="{{ post.date }}" class="label">{{ post.date }}</time>
+		<time is="blog-post-timestamp" datetime="{{ post.date }}" class="label">{{ post.date | date_to_string }}</time>
 		{% endif %}
 	</li>
 	{% endfor %}

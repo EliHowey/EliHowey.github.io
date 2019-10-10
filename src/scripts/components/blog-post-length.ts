@@ -12,7 +12,7 @@ export class BlogPostLength extends HTMLElement {
 
 	_getEstimatedTimeToRead() {
 		const articleElement = document.getElementsByTagName("article")[0];
-		if (articleElement && articleElement.textContent) {
+		if (articleElement?.textContent) {
 			const WORDS_PER_MINUTE = 200;
 			const numWordsInArticle = articleElement.textContent.split(" ").length;
 			return Math.round(numWordsInArticle / WORDS_PER_MINUTE);

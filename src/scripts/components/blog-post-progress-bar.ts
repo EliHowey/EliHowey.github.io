@@ -3,22 +3,22 @@ export class BlogPostProgressBar extends HTMLProgressElement {
 		super();
 
 		document.addEventListener("scroll", () => {
-			this._updateProgress();
+			this.updateProgress();
 		});
 	}
 
 	connectedCallback() {
-		this._updateMaxValue();
-		this._updateProgress();		
+		this.updateMaxValue();
+		this.updateProgress();		
 	}
 
-	_updateMaxValue() {
+	private updateMaxValue() {
 		const docEl = document.documentElement;
 		const scrollablePostHeight = docEl.scrollHeight - docEl.clientHeight;
 		this.setAttribute("max", scrollablePostHeight.toString());
 	}
 
-	_updateProgress() {
+	private updateProgress() {
 		const scrollPosition =
 			document.documentElement.scrollTop ||
 			document.body.scrollTop ||

@@ -4,13 +4,13 @@ export class BlogPostLength extends HTMLElement {
 	}
 
 	connectedCallback() {
-		const timeToRead = this._getEstimatedTimeToRead();
+		const timeToRead = this.getEstimatedTimeToRead();
 		if (timeToRead && !isNaN(timeToRead)) {
 			this.textContent = `${timeToRead < 1 ? "<1" : timeToRead} minute read`;
 		}
 	}
 
-	_getEstimatedTimeToRead() {
+	private getEstimatedTimeToRead() {
 		const articleElement = document.getElementsByTagName("article")[0];
 		if (articleElement?.textContent) {
 			const WORDS_PER_MINUTE = 200;

@@ -23,7 +23,7 @@ export class BlogPostTimestamp extends HTMLTimeElement {
 		this.title = this.absoluteDateFormatter.format(new Date(postDate));
 	}
 
-	getRelativeDateString(timestamp: number) {
+	private getRelativeDateString(timestamp: number) {
 		const relativeDateInMinutes = (timestamp - Date.now()) / (1000 * 60);
 		if (Math.abs(relativeDateInMinutes) < 60) {
 			return this.relativeDateFormatter.format(

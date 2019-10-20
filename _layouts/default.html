@@ -13,22 +13,19 @@
 
 		{% if layout.stylesheet_path %}
 		<link rel="stylesheet" href="{{ layout.stylesheet_path }}" />
-		{% endif %}
-
-		{% if page.stylesheet_path %}
+		{% endif %} {% if page.stylesheet_path %}
 		<link rel="stylesheet" href="{{ page.stylesheet_path }}" />
-		{% endif %}
-
-		{% if layout.script_path %}
+		{% endif %} {% if layout.script_path %}
 		<script type="module" src="{{ layout.script_path }}"></script>
-		{% endif %}
-
-		{% if page.script_path %}
+		{% endif %} {% if page.script_path %}
 		<script type="module" src="{{ page.script_path }}"></script>
 		{% endif %}
 	</head>
 	<body>
-		<a id="skip-to-content-link" href="#content" class="visually-hidden"
+		<a
+			id="skip-to-content-link"
+			href="#content"
+			class="skip-to-content visually-hidden"
 			>Skip to content</a
 		>
 		{% include nav_header.html %}

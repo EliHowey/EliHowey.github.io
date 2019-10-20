@@ -8,21 +8,13 @@
 @import './shared';
 
 main {
-	min-height: 100vh;
 	max-width: $max-page-width;
-	margin: auto;
 	padding-bottom: $grid-gap;
 }
 
 article {
 	max-width: 65ch; // For readability
 	margin: auto;
-
-	> * + * {
-		// Default spacing for all adjacent elements in an article
-		// TODO: Adjust this for things with callouts? Like <pre> tags?
-		margin-top: 1em;
-	}
 
 	// Article endmark
 	&::after {
@@ -75,25 +67,4 @@ progress {
 blog-post-length::before {
 	content: '•';
 	padding: 0 1ch;
-}
-
-.color-swatch-container {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
-.color-swatch {
-	min-height: 3em;
-	padding: 0.5em 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	font-size: 16px;
-
-	&[data-color]::after {
-		content: attr(data-color);
-		font-weight: bold;
-		text-transform: uppercase;
-	}
 }

@@ -5,7 +5,7 @@
 	Copyright 2019
 */
 
-@import "./shared";
+@import './shared';
 
 main > * + * {
 	margin-top: 1rem;
@@ -25,11 +25,11 @@ li {
 	margin-left: -1 * $post-spacing;
 	transition: background-color 150ms ease;
 
-	& h3 {
+	h3 {
 		font-size: $post-title-font-size;
 	}
 
-	& p {
+	p {
 		margin: 0.5em 0;
 	}
 
@@ -38,7 +38,7 @@ li {
 		display: block;
 		position: absolute;
 		z-index: 0;
-		content: "";
+		content: '';
 		background-color: var(--on-background);
 		transition: background-color 150ms ease;
 	}

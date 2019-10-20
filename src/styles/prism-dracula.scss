@@ -7,8 +7,10 @@
 * Further modified here by Eli Howey
 */
 
-code[class*="language-"],
-pre[class*="language-"] {
+/* stylelint-disable */
+
+code[class*='language-'],
+pre[class*='language-'] {
 	color: var(--on-background);
 	text-align: left;
 	white-space: pre-wrap;
@@ -26,19 +28,19 @@ pre[class*="language-"] {
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
 	padding: 1em;
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
 	color: var(--on-code-background);
 	background-color: var(--code-background);
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
 	padding: 0.1em;
 	border-radius: 0.3em;
 	white-space: normal;

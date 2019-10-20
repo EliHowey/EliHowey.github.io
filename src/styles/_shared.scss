@@ -11,15 +11,11 @@ $inline-element-padding: 0.1em;
 	/* Neutrals */
 	--background: var(--white);
 	--on-background: var(--gray-dark);
-
-	--link-background--1: hotpink;
+	--link-background--1: hsl(330, 100%, 71%);
 	--link-background--2: hsl(55, 100%, 50%);
-
 	--code-background: hsl(240, 14%, 97%);
 	--on-code-background: hsl(357, 62%, 56%);
-
 	--highlight-background: hsl(56, 100%, 68%);
-
 	--label: hsl(0, 0%, 60%);
 
 	/* Font Scale (Harmonic) */
@@ -38,10 +34,8 @@ $inline-element-padding: 0.1em;
 	:root {
 		--background: var(--gray-dark);
 		--on-background: var(--white);
-
 		--link-background--1: hsl(55, 100%, 50%);
-		--link-background--2: hotpink;
-
+		--link-background--2: hsl(330, 100%, 71%);
 		--code-background: hsl(240, 12%, 3%);
 		--on-code-background: hsl(357, 62%, 56%);
 	}
@@ -86,9 +80,9 @@ $inline-element-padding: 0.1em;
  * Defaults
  * ======================================== */
 html {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-		"Segoe UI Symbol";
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
 	font-size: 20px;
 	line-height: 1.66;
 	color: var(--on-background);
@@ -152,18 +146,18 @@ nav li {
 
 /* Links */
 a {
-	padding: 0.05em;
-	color: var(--link-background--1);
-	text-decoration: none;
-
 	/* Underline replacement with hover & focus effect */
 	$background-size-y--1: 0.05em;
 	$background-size-y--2: 30%;
 
+	padding: 0.05em;
+	color: var(--link-background--1);
+	text-decoration: none;
 	background-clip: border-box;
 	background-repeat: no-repeat;
-	background-image: 
-		linear-gradient(
+
+	/* stylelint-disable */
+	background-image: linear-gradient(
 			to right,
 			var(--link-background--1),
 			var(--link-background--1)
@@ -173,13 +167,10 @@ a {
 			var(--link-background--2),
 			var(--link-background--2)
 		);
-	background-position:
-		100% 100%,
-		-100% 100%;
-	background-size: 
-		100% $background-size-y--1,
-		0% $background-size-y--2;
+	/* stylelint-enable */
 
+	background-position: 100% 100%, -100% 100%;
+	background-size: 100% $background-size-y--1, 0% $background-size-y--2;
 	transition-property: background-position, background-size;
 	transition-duration: 350ms;
 	transition-timing-function: ease-out;
@@ -190,27 +181,12 @@ a {
 
 	&:hover,
 	&:focus {
-		background-position:
-			200% 100%,
-			0% 100%;
-		background-size:
-			0% $background-size-y--1,
-			100% $background-size-y--2;
+		background-position: 200% 100%, 0% 100%;
+		background-size: 0% $background-size-y--1, 100% $background-size-y--2;
 	}
 }
 
-.homepage-link {
-	flex: 1 0 max-content;
-	padding-right: 1rem; // Space between this link and the <nav> links
-
-	a {
-		margin: 0;
-		padding: 0;
-		text-decoration: none;
-	}
-}
-
-#skip-to-content-link:focus {
+.skip-to-content:focus {
 	transition: none;
 	box-sizing: content-box;
 	height: unset;
@@ -219,6 +195,12 @@ a {
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 0.5em 1em;
+}
+
+.homepage-link {
+	flex: 1 0 max-content;
+	padding-right: 1rem; // Space between this link and the <nav> links
+	font-size: var(--size-up-3);
 }
 
 /* Semantic Markers */
@@ -260,14 +242,14 @@ blockquote {
 		margin-left: $inline-element-padding;
 	}
 
-	& + cite {
+	+ cite {
 		display: block;
 		margin: 0;
 		text-align: right;
+	}
 
-		&::before {
-			content: "– ";
-		}
+	+ cite::before {
+		content: '– ';
 	}
 }
 
@@ -329,9 +311,15 @@ code,
 samp,
 kbd,
 pre[data-lang]::before {
-	font-family: Fira Code, Liberation Mono, SFMono-Regular, Consolas, Monaco,
-		"Andale Mono", "Ubuntu Mono", Menlo, Courier, monospace;
+	font-family: 'Fira Code', 'Liberation Mono', 'SFMono-Regular', 'Consolas',
+		'Monaco', 'Andale Mono', 'Ubuntu Mono', Menlo, Courier, monospace;
 	font-size: var(--size-down-1);
+}
+
+pre,
+code {
+	color: var(--on-code-background);
+	background-color: var(--code-background);
 }
 
 pre,
@@ -343,14 +331,9 @@ mark {
 	border-radius: 3px;
 }
 
-code {
-	color: var(--on-code-background);
-	background-color: var(--code-background);
-}
-
 samp {
 	color: rgb(119, 251, 76);
-	background-color: black;
+	background-color: #000;
 }
 
 kbd {
@@ -368,20 +351,19 @@ pre {
 	// ... with a language identifier badge
 	&[data-lang] {
 		padding-top: 2 * $code-block-padding;
+	}
 
-		&::before {
-			content: attr(data-lang);
-			position: absolute;
-			margin-top: -2.5 * $code-block-padding;
-			margin-bottom: $code-block-padding;
-			margin-left: $code-block-padding / -2;
-			padding-left: $code-block-padding / 2;
-			padding-right: $code-block-padding / 2;
-			border-radius: 3px;
-
-			color: var(--background);
-			background-color: var(--on-background);
-		}
+	&[data-lang]::before {
+		content: attr(data-lang);
+		position: absolute;
+		margin-top: -2.5 * $code-block-padding;
+		margin-bottom: $code-block-padding;
+		margin-left: $code-block-padding / -2;
+		padding-left: $code-block-padding / 2;
+		padding-right: $code-block-padding / 2;
+		border-radius: 3px;
+		color: var(--background);
+		background-color: var(--on-background);
 	}
 }
 
@@ -418,10 +400,10 @@ body {
 		align-items: baseline;
 		color: var(--on-background);
 		background-color: var(--background);
+	}
 
-		:first-child {
-			flex-shrink: 0;
-			margin-right: 1em;
-		}
+	> footer :first-child {
+		flex-shrink: 0;
+		margin-right: 1em;
 	}
 }

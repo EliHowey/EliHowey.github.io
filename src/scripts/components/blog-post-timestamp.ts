@@ -16,14 +16,14 @@ export class BlogPostTimestamp extends HTMLTimeElement {
 		});
 	}
 
-	connectedCallback() {
+	connectedCallback(): void {
 		const postDate = Date.parse(this.dateTime);
 
-		this.textContent = this.getRelativeDateString(postDate);
+		this.textContent = this.getRelativeDate(postDate);
 		this.title = this.absoluteDateFormatter.format(new Date(postDate));
 	}
 
-	private getRelativeDateString(timestamp: number) {
+	private getRelativeDate(timestamp: number): string {
 		const relativeDateInMinutes = (timestamp - Date.now()) / (1000 * 60);
 		if (Math.abs(relativeDateInMinutes) < 60) {
 			return this.relativeDateFormatter.format(

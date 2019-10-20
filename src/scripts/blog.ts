@@ -5,8 +5,8 @@
   Copyright 2019
 */
 
-import { BlogPostTimestamp } from "./components/blog-post-timestamp.js";
+import { BlogPostTimestamp } from './components/blog-post-timestamp.js';
 
-customElements.define("blog-post-timestamp", BlogPostTimestamp, {
-	extends: "time"
+customElements.define('blog-post-timestamp', BlogPostTimestamp, {
+	extends: 'time'
 });

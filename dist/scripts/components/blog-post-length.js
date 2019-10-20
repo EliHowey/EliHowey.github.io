@@ -16,6 +16,7 @@ export class BlogPostLength extends HTMLElement {
             const numWordsInArticle = articleElement.textContent.split(" ").length;
             return Math.round(numWordsInArticle / WORDS_PER_MINUTE);
         }
+        return 0;
     }
 }
 //# sourceMappingURL=blog-post-length.js.map

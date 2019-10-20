@@ -1,7 +1,7 @@
 export class BlogPostProgressBar extends HTMLProgressElement {
     constructor() {
         super();
-        document.addEventListener("scroll", () => {
+        document.addEventListener('scroll', () => {
             this.updateProgress();
         });
     }
@@ -12,13 +12,13 @@ export class BlogPostProgressBar extends HTMLProgressElement {
     updateMaxValue() {
         const docEl = document.documentElement;
         const scrollablePostHeight = docEl.scrollHeight - docEl.clientHeight;
-        this.setAttribute("max", scrollablePostHeight.toString());
+        this.setAttribute('max', scrollablePostHeight.toString());
     }
     updateProgress() {
         const scrollPosition = document.documentElement.scrollTop ||
             document.body.scrollTop ||
             window.scrollY;
-        this.setAttribute("value", scrollPosition.toString());
+        this.setAttribute('value', scrollPosition.toString());
     }
 }
 //# sourceMappingURL=blog-post-progress-bar.js.map

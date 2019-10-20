@@ -1,0 +1,39 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>
+	{% if page.title %}
+	{{ page.title }} - Eli Howey {% else %} Eli Howey {% endif %}
+</title>
+<meta name="description" content="{{ page.description }}" />
+
+<!-- Search engine crawlers and indexers -->
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+<!-- Google Site Verification -->
+<meta
+	name="google-site-verification"
+	content="0wzgoy4F7U0pm2Md0a8deDk1CBGFT-FkcvyRgSr7Pqg"
+/>
+
+<!-- Facebook Open Graph -->
+<meta property="fb:app_id" content="472071186851880" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Eli Howey" />
+<meta property="og:url" content="https://elihowey.com{{ page.url }}" />
+<meta
+	property="og:title"
+	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
+/>
+<meta property="og:description" content="{{ page.description }}" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Metadata links -->
+<link rel="canonical" href="https://elihowey.com{{ page.url }}" />
+
+<!-- Fonts -->
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&display=swap"
+/>

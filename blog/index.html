@@ -1,21 +1,28 @@
 ---
 layout: default
-stylesheet_path: "/dist/styles/blog.min.css"
-script_path: "/dist/scripts/blog.js"
+stylesheet_path: '/dist/styles/blog.min.css'
+script_path: '/dist/scripts/blog.js'
 title: Blog
 ---
 
 <ul class="blog-posts">
 	{% for post in site.posts %}
 	<li class="blog-post">
-		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+		{% if post.date %}
+		<time
+			is="blog-post-timestamp"
+			datetime="{{ post.date }}"
+			class="label"
+			>{{ post.date | date: '%B %-d, %Y' }}</time
+		>
+		{% endif %}
+
+		<h3>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+		</h3>
 
 		{% if post.description %}
 		<p>{{ post.description }}</p>
-		{% endif %}
-
-		{% if post.date %}
-		<time is="blog-post-timestamp" datetime="{{ post.date }}" class="label">{{ post.date | date_to_string }}</time>
 		{% endif %}
 	</li>
 	{% endfor %}

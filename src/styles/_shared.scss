@@ -1,3 +1,5 @@
+@import './reset';
+
 $inline-element-padding: 0.1em;
 
 /* ========================================
@@ -42,15 +44,6 @@ $inline-element-padding: 0.1em;
 }
 
 /* ========================================
- * Resets
- * ======================================== */
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}
-
-/* ========================================
  * Utilities
  * ======================================== */
 .visually-hidden {
@@ -80,13 +73,20 @@ $inline-element-padding: 0.1em;
  * Defaults
  * ======================================== */
 html {
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+	font-family: 'Bitter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol';
-	font-size: 20px;
-	line-height: 1.66;
+	font-size: 16px;
+	line-height: 1.8;
 	color: var(--on-background);
 	background-color: var(--background);
+
+	@media (min-width: 420px) and (max-width: 768px) {
+		font-size: 20px;
+	}
+	@media (min-width: 768px) {
+		font-size: 24px;
+	}
 }
 
 h1,
@@ -95,6 +95,9 @@ h3,
 h4,
 h5,
 h6 {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol';
 	line-height: 1.25;
 	font-weight: 600;
 }
@@ -216,52 +219,24 @@ mark {
 	background-color: var(--highlight-background);
 }
 
-strong {
-	font-weight: bold; // Firefox doesn't have this in the UA stylesheet
-}
-
-/* Quotes */
-q::before,
-q::after,
-blockquote::before,
-blockquote::after {
-	font-weight: 700;
-}
-
+/* Block Quotes */
 blockquote {
 	font-size: 1.75em;
-	text-align: center;
+	border-left: 0.25em solid #000;
+	padding-left: 1em;
 
-	&::before {
-		content: open-quote;
-		margin-right: $inline-element-padding;
-	}
-
-	&::after {
-		content: close-quote;
-		margin-left: $inline-element-padding;
-	}
-
-	+ cite {
+	cite {
 		display: block;
 		margin: 0;
 		text-align: right;
 	}
 
-	+ cite::before {
+	cite::before {
 		content: '– ';
 	}
 }
 
 /* Images and Figures */
-figure,
-img {
-	display: block;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 figcaption {
 	padding: 0.5em 0;
 	border-top: 1px solid var(--background);
@@ -373,7 +348,6 @@ $page-padding: 3rem;
 $grid-gap: 1rem;
 
 body {
-	min-height: 100vh;
 	display: grid;
 	grid-template-rows: max-content auto max-content;
 	grid-gap: $grid-gap;

@@ -13,10 +13,10 @@ export class BlogPostTimestamp extends HTMLTimeElement {
     }
     connectedCallback() {
         const postDate = Date.parse(this.dateTime);
-        this.textContent = this.getRelativeDateString(postDate);
+        this.textContent = this.getRelativeDate(postDate);
         this.title = this.absoluteDateFormatter.format(new Date(postDate));
     }
-    getRelativeDateString(timestamp) {
+    getRelativeDate(timestamp) {
         const relativeDateInMinutes = (timestamp - Date.now()) / (1000 * 60);
         if (Math.abs(relativeDateInMinutes) < 60) {
             return this.relativeDateFormatter.format(Math.round(relativeDateInMinutes), "minutes");

@@ -7,6 +7,13 @@
 </title>
 <meta name="description" content="{{ page.description }}" />
 
+<!-- Schema.org -->
+<meta
+	itemprop="name"
+	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
+/>
+<meta itemprop="description" content="{{ page.description }}" />
+
 <!-- Search engine crawlers and indexers -->
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -28,6 +35,16 @@
 />
 <meta property="og:description" content="{{ page.description }}" />
 <meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@elihowey" />
+<meta name="twitter:url" content="https://elihowey.com{{ page.url }}" />
+<meta
+	name="twitter:title"
+	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
+/>
+<meta name="twitter:description" content="{{ page.description }}" />
 
 <!-- Metadata links -->
 <link rel="canonical" href="https://elihowey.com{{ page.url }}" />

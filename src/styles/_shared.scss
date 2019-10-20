@@ -292,12 +292,6 @@ pre[data-lang]::before {
 }
 
 pre,
-code {
-	color: var(--on-code-background);
-	background-color: var(--code-background);
-}
-
-pre,
 :not(pre) > code,
 samp,
 kbd,

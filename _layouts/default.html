@@ -7,20 +7,25 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta charset="UTF-8" />
 
-		<!-- Prism (for code formatting) -->
-		<link rel="stylesheet" href="/dist/styles/prism-dracula.min.css" />
-		<script type="module" src="/dist/scripts/prism.js"></script>
-
 		<link
 			href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&display=swap"
 			rel="stylesheet"
 		/>
 
+		<!-- Page Stylesheets -->
 		{% if layout.stylesheet_path %}
 		<link rel="stylesheet" href="{{ layout.stylesheet_path }}" />
 		{% endif %} {% if page.stylesheet_path %}
 		<link rel="stylesheet" href="{{ page.stylesheet_path }}" />
-		{% endif %} {% if layout.script_path %}
+		{% endif %}
+
+		<!-- Module Stylesheets -->
+		{% if page.include_modules.code %}
+		<link rel="stylesheet" href="/dist/styles/code.min.css" />
+		{% endif %}
+
+		<!-- Scripts -->
+		{% if layout.script_path %}
 		<script type="module" src="{{ layout.script_path }}"></script>
 		{% endif %} {% if page.script_path %}
 		<script type="module" src="{{ page.script_path }}"></script>

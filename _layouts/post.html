@@ -10,7 +10,7 @@ script_path: '/dist/scripts/blog-post.js'
 		<h2>{{ page.title }}</h2>
 		<time
 			is="blog-post-timestamp"
-			datetime="{{ page.date }}"
+			datetime="{{ page.date | date_to_xmlschema }}"
 			class="label"
 			>{{ page.date | date: '%B %-d, %Y' }}</time
 		>

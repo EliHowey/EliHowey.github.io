@@ -11,7 +11,7 @@ title: Blog
 		{% if post.date %}
 		<time
 			is="blog-post-timestamp"
-			datetime="{{ post.date }}"
+			datetime="{{ post.date | date_to_xmlschema }}"
 			class="label"
 			>{{ post.date | date: '%B %-d, %Y' }}</time
 		>

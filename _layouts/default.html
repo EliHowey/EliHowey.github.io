@@ -35,6 +35,8 @@
 			{{ content }}
 		</main>
 
-		{% include footer.html %}
+		{% if layout.show_back_to_top %} {% include footer.html
+		show_back_to_top="true" %} {% else %} {% include footer.html %} {% endif
+		%}
 	</body>
 </html>

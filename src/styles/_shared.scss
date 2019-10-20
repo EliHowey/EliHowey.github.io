@@ -1,3 +1,5 @@
+@import './reset';
+
 $inline-element-padding: 0.1em;
 
 /* ========================================
@@ -39,15 +41,6 @@ $inline-element-padding: 0.1em;
 		--code-background: hsl(240, 12%, 3%);
 		--on-code-background: hsl(357, 62%, 56%);
 	}
-}
-
-/* ========================================
- * Resets
- * ======================================== */
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
 }
 
 /* ========================================
@@ -226,52 +219,24 @@ mark {
 	background-color: var(--highlight-background);
 }
 
-strong {
-	font-weight: bold; // Firefox doesn't have this in the UA stylesheet
-}
-
-/* Quotes */
-q::before,
-q::after,
-blockquote::before,
-blockquote::after {
-	font-weight: 700;
-}
-
+/* Block Quotes */
 blockquote {
 	font-size: 1.75em;
-	text-align: center;
+	border-left: 0.25em solid #000;
+	padding-left: 1em;
 
-	&::before {
-		content: open-quote;
-		margin-right: $inline-element-padding;
-	}
-
-	&::after {
-		content: close-quote;
-		margin-left: $inline-element-padding;
-	}
-
-	+ cite {
+	cite {
 		display: block;
 		margin: 0;
 		text-align: right;
 	}
 
-	+ cite::before {
+	cite::before {
 		content: '– ';
 	}
 }
 
 /* Images and Figures */
-figure,
-img {
-	display: block;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 figcaption {
 	padding: 0.5em 0;
 	border-top: 1px solid var(--background);
@@ -383,7 +348,6 @@ $page-padding: 3rem;
 $grid-gap: 1rem;
 
 body {
-	min-height: 100vh;
 	display: grid;
 	grid-template-rows: max-content auto max-content;
 	grid-gap: $grid-gap;

@@ -1,0 +1,153 @@
+/**
+ * CSS Resets
+ * 
+ * Lifted from Andy Bell's [Modern CSS Reset](https://github.com/hankchizljaw/modern-css-reset) and MDN's [CSS Remedy](https://github.com/mozdevs/cssremedy)
+ *
+ */
+
+/* Use border-box by default */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/*
+* Consistent line spacing
+* [CSS Inline Layout Module Level 3](https://drafts.csswg.org/css-inline-3/#line-sizing-property)
+*/
+html {
+	line-sizing: normal;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+
+/* Remove default padding */
+ul,
+ol {
+	padding: 0;
+}
+
+/* Set core body defaults */
+body {
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+}
+
+/* Typography
+*************/
+
+/* Overflow by default is bad */
+pre {
+	white-space: pre-wrap;
+}
+
+/*
+* 1. Solid, thin horizontal rules
+* 2. Remove Firefox `color: gray`
+* 3. Remove default `1px` height, and common `overflow: hidden`
+*/
+hr {
+	border-style: solid;
+	border-width: 1px 0 0;
+	color: inherit;
+	height: 0;
+	overflow: visible;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+	list-style: none;
+}
+
+/* Link elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+/* Embedded Elements
+********************/
+
+/*
+* 1. Block display is usually what we want
+* 2. Remove strange space-below when inline
+* 3. Responsive by default
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+	max-width: 100%;
+}
+
+/*
+* Maintain intrinsic aspect ratios when `max-width` is applied
+* (iframe, embed, and object have no intrinsic ratio, set height explicitly)
+*/
+img,
+svg,
+video,
+canvas {
+	height: auto;
+}
+
+/*
+* There is no good reason elements default to 300px,
+* and audio files are unlikely to come with a width attribute
+*/
+audio {
+	width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+	margin-top: 1em;
+}
+
+/* Remove all animations and transitions for people who prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-delay: -1s !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		background-attachment: initial !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

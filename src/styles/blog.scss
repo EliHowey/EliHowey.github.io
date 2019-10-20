@@ -7,25 +7,17 @@
 
 @import './shared';
 
-main > * + * {
-	margin-top: 1rem;
-}
-
-li {
-	list-style: none;
-}
-
 .blog-post {
 	$post-title-font-size: 1.5rem;
 	$post-spacing: 1em;
 
 	position: relative;
 	padding: $post-spacing;
-	margin-left: -1 * $post-spacing;
+	margin: 0 (-1 * $post-spacing);
 	transition: background-color 150ms ease;
 
 	&:hover {
-		background-color: hsla(0, 0%, 85%, 0.05);
+		background-color: hsla(0, 0%, 85%, 0.1);
 	}
 
 	h3 {
@@ -33,24 +25,6 @@ li {
 	}
 
 	p {
-		margin: 0.5em 0;
-	}
-
-	&::before,
-	&::after {
-		display: block;
-		position: absolute;
-		z-index: 0;
-		content: '';
-		background-color: var(--on-background);
-		transition: background-color 150ms ease;
-	}
-}
-
-@media (max-width: 1100px) {
-	// Hide the timeline pseudo-elements
-	.blog-post::before,
-	.blog-post::after {
-		display: none;
+		margin-top: 0.5em;
 	}
 }

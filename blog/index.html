@@ -13,7 +13,7 @@ title: Blog
 			is="blog-post-timestamp"
 			datetime="{{ post.date }}"
 			class="label"
-			>{{ post.date | date_to_string }}</time
+			>{{ post.date | date: '%B %-d, %Y' }}</time
 		>
 		{% endif %}
 

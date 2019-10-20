@@ -1,7 +1,7 @@
 ---
 layout: default
-stylesheet_path: "/dist/styles/blog-post.min.css"
-script_path: "/dist/scripts/blog-post.js"
+stylesheet_path: '/dist/styles/blog-post.min.css'
+script_path: '/dist/scripts/blog-post.js'
 ---
 
 <progress is="blog-post-progress-bar" id="article-progress-bar"></progress>
@@ -12,7 +12,7 @@ script_path: "/dist/scripts/blog-post.js"
 			is="blog-post-timestamp"
 			datetime="{{ page.date }}"
 			class="label"
-			>{{ page.date | date_to_string }}</time
+			>{{ page.date | date: '%B %-d, %Y' }}</time
 		>
 		<blog-post-length class="label"></blog-post-length>
 	</header>

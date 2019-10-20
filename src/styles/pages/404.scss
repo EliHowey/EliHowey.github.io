@@ -1,0 +1,16 @@
+@import '../shared';
+
+main {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+a {
+	margin-top: 2em;
+}

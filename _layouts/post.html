@@ -19,4 +19,17 @@ show_back_to_top: true
 	</header>
 
 	{{ content }}
+
+	<footer class="tags">
+		<span class="label">Tags:</span>
+		{% if page.tags.size > 0 %}
+		<ul class="tag-list">
+			{% for tag in page.tags %}
+			<li class="tag">{{ tag }}</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<span class="label">None</span>
+		{% endif %}
+	</footer>
 </article>

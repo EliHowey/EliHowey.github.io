@@ -1,0 +1,42 @@
+$blog-post-spacing: 1em;
+
+ul.blog-posts {
+	margin-left: -1 * $blog-post-spacing;
+	margin-right: -1 * $blog-post-spacing;
+
+	li {
+		border-radius: $blog-post-spacing / 2;
+		transition: background-color 75ms ease;
+	}
+
+	li:hover {
+		background-color: hsla(0, 0%, 85%, 0.1);
+	}
+
+	h3 {
+		font-size: 1.25em;
+	}
+}
+
+.blog-post {
+	height: 100%;
+	padding: $blog-post-spacing;
+
+	> * + * {
+		margin-top: 0.5rem;
+	}
+}
+
+@supports (grid-template-rows: subgrid) {
+	.blog-posts {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+	}
+
+	.blog-posts li,
+	.blog-post {
+		display: grid;
+		grid-row: 1 / -1;
+		grid-template-rows: subgrid;
+	}
+}

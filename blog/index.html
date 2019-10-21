@@ -4,27 +4,16 @@ stylesheet_path: '/dist/styles/blog.min.css'
 script_path: '/dist/scripts/blog.js'
 title: Blog
 description: Blog posts written by Eli Howey
+include_modules:
+    blog_post_summary: true
 ---
 
-<ul class="blog-posts">
-	{% for post in site.posts %}
-	<li class="blog-post">
-		{% if post.date %}
-		<time
-			is="blog-post-timestamp"
-			datetime="{{ post.date | date_to_xmlschema }}"
-			class="label"
-			>{{ post.date | date: '%B %-d, %Y' }}</time
-		>
-		{% endif %}
+<h2>Blog</h2>
 
-		<h3>
-			<a href="{{ post.url }}">{{ post.title }}</a>
-		</h3>
-
-		{% if post.description %}
-		<p>{{ post.description }}</p>
-		{% endif %}
-	</li>
-	{% endfor %}
-</ul>
+<div>
+	<ul class="blog-posts">
+		{% for post in site.posts %}
+		<li>{% include blog_post_summary.html %}</li>
+		{% endfor %}
+	</ul>
+</div>

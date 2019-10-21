@@ -7,15 +7,16 @@ body {
 
 main {
 	padding: 0;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
+}
 
-	> * {
-		font-size: 3rem;
+.headline {
+	min-height: 30vh;
+	font-size: 3rem;
+	text-align: center;
+}
 
-		@media (max-width: 540px) {
-			font-size: 2rem;
-		}
-	}
+ul.blog-posts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-column-gap: 1em;
 }

@@ -1,0 +1,18 @@
+<article class="blog-post">
+	{% if post.date %}
+	<time
+		is="blog-post-timestamp"
+		datetime="{{ post.date | date_to_xmlschema }}"
+		class="label"
+		>{{ post.date | date: '%B %-d, %Y' }}</time
+	>
+	{% endif %}
+
+	<h3>
+		<a href="{{ post.url }}">{{ post.title }}</a>
+	</h3>
+
+	{% if post.description %}
+	<p>{{ post.description }}</p>
+	{% endif %}
+</article>

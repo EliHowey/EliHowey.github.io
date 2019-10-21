@@ -13,6 +13,8 @@
 		<!-- Module Stylesheets -->
 		{% if page.include_modules.code %}
 		<link rel="stylesheet" href="/dist/styles/code.min.css" />
+		{% endif %} {% if page.include_modules.blog_post_summary %}
+		<link rel="stylesheet" href="/dist/styles/blog-post-summary.min.css" />
 		{% endif %}
 
 		<!-- Scripts -->
@@ -31,7 +33,7 @@
 		>
 		{% include nav_header.html %}
 
-		<main id="content">
+		<main id="content" class="spacing-container">
 			{{ content }}
 		</main>
 

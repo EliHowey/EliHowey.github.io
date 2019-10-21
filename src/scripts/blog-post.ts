@@ -2,7 +2,7 @@ import { BlogPostLength } from './components/blog-post-length.js';
 import { BlogPostProgressBar } from './components/blog-post-progress-bar.js';
 import { BlogPostTimestamp } from './components/blog-post-timestamp.js';
 
-function renderHeadingLinks() {
+function renderHeadingLinks(): void {
 	const headings = document.querySelectorAll('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]');
 	// eslint-disable-next-line
 	console.log(headings);

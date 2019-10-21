@@ -69,6 +69,21 @@ blog-post-length::before {
 	padding: 0 1ch;
 }
 
+/* Heading Links */
+.heading-permalink {
+	background: none;
+	margin-left: 0.25em;
+
+	svg {
+		display: inline-block;
+		height: 0.75em;
+		width: 0.75em;
+		vertical-align: baseline;
+		stroke: currentColor;
+		fill: currentColor;
+	}
+}
+
 /* Tags */
 
 .tags {

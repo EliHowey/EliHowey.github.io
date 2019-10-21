@@ -117,6 +117,12 @@ canvas {
 	height: auto;
 }
 
+/* SVG definitions shouldn't take up space */
+svg.defs-only {
+	height: 0;
+	width: 0;
+}
+
 /*
 * There is no good reason elements default to 300px,
 * and audio files are unlikely to come with a width attribute

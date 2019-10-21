@@ -2,8 +2,26 @@
 layout: default
 stylesheet_path: '/dist/styles/home.min.css'
 description: 'The personal website of Eli Howey'
+include_modules:
+    blog_post_summary: true
 ---
 
-<p>Front-end developer.</p>
-<p>UX enthusiast.</p>
-<p>Technophile (the music, that is).</p>
+<section class="headline">
+	<p>Front-end developer.</p>
+	<p>UX enthusiast.</p>
+	<p>Technophile (the music, that is).</p>
+</section>
+
+<section class="spacing-container">
+	<h2>Recent Posts</h2>
+
+	<div>
+		<ul class="blog-posts">
+			{% for post in site.posts %} {% if forloop.index0 < 3 %}
+			<li>{% include blog_post_summary.html %}</li>
+			{% endif %} {% endfor %}
+		</ul>
+	</div>
+
+	<div><a href="blog/">See all posts</a></div>
+</section>

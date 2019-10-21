@@ -68,3 +68,30 @@ blog-post-length::before {
 	content: '•';
 	padding: 0 1ch;
 }
+
+/* Tags */
+
+.tags {
+	display: flex;
+	align-items: baseline;
+
+	> :first-child {
+		margin-right: 1ch;
+	}
+}
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+}
+
+.tag {
+	margin: 0 0.25em 0.25em 0;
+	font-family: sans-serif;
+	font-size: var(--size-down-2);
+	line-height: 1;
+	padding: 0.1em 0.25em;
+	border: 1px solid var(--on-background);
+	border-radius: 0.25em;
+}

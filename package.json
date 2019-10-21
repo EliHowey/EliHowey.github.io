@@ -4,8 +4,9 @@
 	"description": "My personal website",
 	"main": "index.js",
 	"scripts": {
+		"analyze:css": "curl https://www.projectwallace.com/webhooks/v1/imports?token=c5ceda50-15f1-4be5-8c29-0b8282f5b976 --request POST --header 'Content-Type: text/css' --data @dist/styles/blog-post.min.css",
 		"local": "bundle exec jekyll serve",
-		"fix-styles": "prettier-stylelint --write 'src/**/*.{css,scss}'"
+		"fix:styles": "prettier-stylelint --write 'src/**/*.{css,scss}'"
 	},
 	"repository": {
 		"type": "git",

@@ -78,7 +78,6 @@ html {
 		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol';
 	font-size: 16px;
-	line-height: 1.8;
 	color: var(--on-background);
 	background-color: var(--background);
 
@@ -127,6 +126,10 @@ h6 {
 	font-size: var(--size-base);
 }
 
+li::marker {
+	color: var(--accent-primary);
+}
+
 /* Page Navigation */
 nav,
 nav ul {
@@ -154,7 +157,6 @@ a {
 	$background-size-y--1: 0.05em;
 	$background-size-y--2: 30%;
 
-	padding: 0.05em;
 	color: var(--accent-primary);
 	text-shadow: 0 1px 0 var(--background);
 	text-decoration: none;
@@ -335,6 +337,7 @@ $page-padding: 3rem;
 $grid-gap: 1rem;
 
 body {
+	line-height: 1.75;
 	display: grid;
 	grid-template-rows: max-content auto max-content;
 	grid-gap: $grid-gap;

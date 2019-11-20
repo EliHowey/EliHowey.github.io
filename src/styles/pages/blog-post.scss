@@ -69,10 +69,36 @@ blog-post-length:not(:empty)::before {
 	padding: 0 1ch;
 }
 
-/* Heading Links */
+/**
+ * Heading Permalinks
+ * 1. Relatively position headings that will have permalinks
+ * 2. Use a pseudo-element to create a hover target
+ * 3. Position the permalink icon within the hover target
+ */
+
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+	position: relative; /* 1 */
+
+	/* 2 */
+	&::before {
+		content: '';
+		position: absolute;
+		left: -1em;
+		height: 100%;
+		width: 1em;
+	}
+}
+
 .heading-permalink {
+	/* 3 */
+	position: absolute;
+	left: -1.25em;
 	background: none;
-	margin-left: 0.25em;
 
 	svg {
 		display: inline-block;
@@ -84,12 +110,12 @@ blog-post-length:not(:empty)::before {
 	}
 
 	@media (hover: hover) {
-		visibility: hidden;
 		opacity: 0;
 		transition: opacity 100ms linear;
 
-		:hover > & {
-			visibility: visible;
+		:hover > &,
+		&:hover,
+		&:focus {
 			opacity: 1;
 		}
 	}

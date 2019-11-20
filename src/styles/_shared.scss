@@ -187,6 +187,7 @@ a {
 	&:focus {
 		background-position: 200% 100%, 0% 100%;
 		background-size: 0% $background-size-y--1, 100% $background-size-y--2;
+		text-shadow: 0 1px 0 var(--background);
 	}
 }
 

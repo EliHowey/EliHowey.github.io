@@ -64,7 +64,7 @@ progress {
 	}
 }
 
-blog-post-length::before {
+blog-post-length:not(:empty)::before {
 	content: '•';
 	padding: 0 1ch;
 }

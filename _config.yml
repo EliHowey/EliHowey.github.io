@@ -1,25 +1,25 @@
 name: Eli Howey
-timezone: "America/New York"
+timezone: 'America/New York'
 markdown: kramdown
 highlighter: rouge
 permalink: /blog/:year/:month/:day/:title
+host: 0.0.0.0
 
 defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+    - scope:
+          path: ''
+          type: 'posts'
+      values:
+          layout: 'post'
 
 exclude:
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - package-lock.json
-  - package.json
-  - README.md
-  - tsconfig.json
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - package-lock.json
+    - package.json
+    - README.md
+    - tsconfig.json
 
 plugins:
-  - jekyll-sitemap
+    - jekyll-sitemap

@@ -178,18 +178,22 @@ a {
 
 	background-position: 100% 100%, -100% 100%;
 	background-size: 100% $background-size-y--1, 0% $background-size-y--2;
-	transition-property: background-position, background-size;
-	transition-duration: 350ms;
-	transition-timing-function: ease-out;
+
+	@media (hover: hover) {
+		transition-property: background-position, background-size;
+		transition-duration: 350ms;
+		transition-timing-function: ease-out;
+
+		&:hover,
+		&:focus {
+			background-position: 200% 100%, 0% 100%;
+			background-size: 0% $background-size-y--1,
+				100% $background-size-y--2;
+		}
+	}
 
 	@media (prefers-reduced-motion: reduce) {
 		transition: none;
-	}
-
-	&:hover,
-	&:focus {
-		background-position: 200% 100%, 0% 100%;
-		background-size: 0% $background-size-y--1, 100% $background-size-y--2;
 	}
 }
 

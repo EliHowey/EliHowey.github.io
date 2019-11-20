@@ -78,7 +78,6 @@ html {
 		Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
 		'Segoe UI Symbol';
 	font-size: 16px;
-	line-height: 1.8;
 	color: var(--on-background);
 	background-color: var(--background);
 
@@ -127,6 +126,10 @@ h6 {
 	font-size: var(--size-base);
 }
 
+li::marker {
+	color: var(--accent-primary);
+}
+
 /* Page Navigation */
 nav,
 nav ul {
@@ -154,8 +157,8 @@ a {
 	$background-size-y--1: 0.05em;
 	$background-size-y--2: 30%;
 
-	padding: 0.05em;
 	color: var(--accent-primary);
+	text-shadow: 0 1px 0 var(--background);
 	text-decoration: none;
 	background-clip: border-box;
 	background-repeat: no-repeat;
@@ -175,18 +178,22 @@ a {
 
 	background-position: 100% 100%, -100% 100%;
 	background-size: 100% $background-size-y--1, 0% $background-size-y--2;
-	transition-property: background-position, background-size;
-	transition-duration: 350ms;
-	transition-timing-function: ease-out;
+
+	@media (hover: hover) {
+		transition-property: background-position, background-size;
+		transition-duration: 350ms;
+		transition-timing-function: ease-out;
+
+		&:hover,
+		&:focus {
+			background-position: 200% 100%, 0% 100%;
+			background-size: 0% $background-size-y--1,
+				100% $background-size-y--2;
+		}
+	}
 
 	@media (prefers-reduced-motion: reduce) {
 		transition: none;
-	}
-
-	&:hover,
-	&:focus {
-		background-position: 200% 100%, 0% 100%;
-		background-size: 0% $background-size-y--1, 100% $background-size-y--2;
 	}
 }
 
@@ -330,10 +337,11 @@ pre {
 
 /* Shared Page Layout */
 $max-page-width: 1200px;
-$page-padding: 3rem;
+$page-padding: 2.5rem;
 $grid-gap: 1rem;
 
 body {
+	line-height: 1.75;
 	display: grid;
 	grid-template-rows: max-content auto max-content;
 	grid-gap: $grid-gap;

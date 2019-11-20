@@ -82,6 +82,17 @@ blog-post-length::before {
 		stroke: currentColor;
 		fill: currentColor;
 	}
+
+	@media (hover: hover) {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 100ms linear;
+
+		:hover > & {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
 }
 
 /* Tags */

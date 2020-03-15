@@ -131,6 +131,11 @@ a {
 	transform: translate(calc(50vw - 50%), 5px);
 }
 
+::selection {
+	color: $theme--light;
+	background-color: $theme--focus;
+}
+
 .page-content {
 	min-height: 100vh;
 	padding: 1em;
@@ -273,4 +278,11 @@ a {
 			background-color: $theme--accent;
 		}
 	}
+}
+
+.link-button {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background-color: $theme--accent;
 }

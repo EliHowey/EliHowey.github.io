@@ -1,37 +1,13 @@
 ---
 layout: default
-stylesheet_path: '/dist/styles/home.min.css'
-script_path: '/dist/scripts/home.js'
 description: 'The personal website of Eli Howey'
-include_modules:
-    blog_post_summary: true
+stylesheet_path: '/dist/styles/main.min.css'
 ---
 
-<section class="headline">
-	<p>Front-end developer.</p>
-	<p>UX enthusiast.</p>
-	<p>Technophile (the music, that is).</p>
-	<div>
-		<a
-			class="button-link"
-			href="mailto:elihowey@gmail.com?subject=Hi! 👋&body=I'm contacting you because I saw your website."
-			target="_blank"
-			rel="noopener noreferrer"
-			>Get in touch</a
-		>
-	</div>
-</section>
+<h2 class="headline">Hello there.</h2>
 
-<section class="spacing-container">
-	<h2>Recent Posts</h2>
-
-	<div>
-		<ul class="blog-posts">
-			{% for post in site.posts %} {% if forloop.index0 < 3 %}
-			<li>{% include blog_post_summary.html %}</li>
-			{% endif %} {% endfor %}
-		</ul>
-	</div>
-
-	<div><a href="blog/">See all posts</a></div>
-</section>
+<p class="lede">
+	I'm a <span class="callout">New York</span>-based
+	<span class="callout">front-end</span> web developer, currently happily
+	employed at <a href="https://havenlife.com">Haven Life</a>.
+</p>

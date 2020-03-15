@@ -1,0 +1,301 @@
+@import '../reset';
+@import '../utilities';
+
+$breakpoint-sm: 500px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1200px;
+
+$theme--light: #f1f1f6;
+$theme--dark: #262738;
+$theme--accent: #f2c94c;
+$theme--focus: #166bdd;
+
+@mixin dot-matrix($dot-size: 2px, $dot-space: 6px) {
+	$negative-space: $dot-space - $dot-size;
+
+	background: linear-gradient(
+				90deg,
+				$theme--light $negative-space,
+				transparent 1%
+			)
+			center,
+		linear-gradient($theme--light $negative-space, transparent 1%) center,
+		rgba($theme--focus, 0.15);
+	background-size: $dot-space $dot-space;
+	background-position: 4px 4px;
+	color: $theme--focus;
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: normal;
+	unicode-range: U+0020-00FE, U+2014-2019;
+	font-display: swap;
+	src: url('/src/fonts/Inter-Regular.woff2') format('woff2'),
+		url('/src/fonts/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: 500;
+	unicode-range: U+0020-00FE, U+2014-2019;
+	font-display: swap;
+	src: url('/src/fonts/Inter-Medium.woff2') format('woff2'),
+		url('/src/fonts/Inter-Medium.woff') format('woff');
+}
+
+html {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 20px;
+
+	@media (min-width: $breakpoint-sm) {
+		font-size: 18px;
+	}
+
+	@media (min-width: $breakpoint-md) {
+		font-size: 24px;
+	}
+}
+
+body {
+	color: $theme--dark;
+	background-color: $theme--light;
+}
+
+h1 {
+	font-size: 2rem;
+	line-height: 1.1;
+
+	@media (min-width: $breakpoint-sm) {
+		font-size: calc(16rem / 3);
+	}
+}
+
+h2 {
+	font-size: 1.5rem;
+
+	@media (min-width: $breakpoint-sm) {
+		font-size: calc(8rem / 3);
+	}
+}
+
+.headline,
+.lede {
+	font-weight: normal;
+}
+
+.lede {
+	font-size: 1rem;
+
+	@media (min-width: $breakpoint-sm) {
+		font-size: 2rem;
+	}
+}
+
+.label {
+	font-size: 0.8rem;
+}
+
+.callout {
+	@include dot-matrix;
+}
+
+a {
+	color: inherit;
+	transition: background-color 100ms ease, box-shadow 100ms ease;
+
+	&:hover,
+	&:focus {
+		background-color: $theme--accent;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 2px $theme--light, 0 0 0 6px $theme--focus;
+	}
+}
+
+.title-link {
+	&:hover,
+	&:focus {
+		background-color: initial;
+	}
+}
+
+#skip-to-content-link:focus {
+	position: fixed;
+	height: auto;
+	width: max-content;
+	clip: unset;
+	transform: translate(calc(50vw - 50%), 5px);
+}
+
+::selection {
+	color: $theme--light;
+	background-color: $theme--focus;
+}
+
+.page-content {
+	min-height: 100vh;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: $breakpoint-sm) {
+		display: grid;
+		padding: unset;
+		grid-gap: 1rem 5vw;
+
+		grid-template-columns:
+			[nav-start footer-start] 1fr
+			[title-start content-start] minmax(min-content, 1000px)
+			[title-end content-end nav-end] 1fr
+			[footer-end];
+		grid-template-rows:
+			[nav-start] auto
+			[nav-end title-start] auto
+			[title-end content-start] 1fr
+			[content-end footer-start] auto
+			[footer-end];
+	}
+}
+
+.page-header {
+	margin-bottom: 2rem;
+
+	&__title {
+		grid-area: title;
+		line-height: 1;
+		position: relative;
+
+		// Accent stripe
+		&::after {
+			content: '';
+			display: block;
+			block-size: 0.1em;
+			inline-size: 100%;
+
+			position: absolute;
+			inset-inline-start: 0;
+			margin-block-start: -0.55em;
+
+			background-color: $theme--accent;
+			z-index: -1; // To sit behind the header text
+		}
+	}
+
+	nav {
+		grid-area: nav;
+	}
+
+	a:not([aria-current='page']) {
+		text-decoration: none;
+	}
+
+	ul {
+		list-style-type: none;
+		border-top: 1px solid;
+		padding-top: 0.5em;
+		display: flex;
+	}
+
+	li + li {
+		margin-left: 1rem;
+	}
+
+	@media (min-width: $breakpoint-sm) {
+		display: contents;
+
+		ul {
+			justify-content: flex-end;
+		}
+	}
+}
+
+.page-main {
+	grid-area: content;
+	max-width: 50ch;
+	padding-bottom: 5em;
+}
+
+.page-footer {
+	grid-area: footer;
+	color: $theme--light;
+	background-color: $theme--dark;
+
+	padding: 1em;
+
+	&__contents {
+		align-self: center;
+	}
+
+	@media (max-width: $breakpoint-sm) {
+		margin: -1em;
+		margin-top: auto;
+	}
+}
+
+@supports (writing-mode: sideways-lr) {
+	.page-content {
+		grid-template-rows:
+			[nav-start title-start] 20vh
+			[nav-end content-start] minmax(60vh, max-content)
+			[title-end] 1fr
+			[content-end footer-start] auto
+			[footer-end];
+		grid-template-columns:
+			[nav-start footer-start] 1fr
+			[title-start] auto
+			[title-end content-start footer-contents-start] minmax(
+				min-content,
+				1000px
+			)
+			[content-end nav-end] 1fr
+			[footer-contents-end footer-end];
+	}
+
+	@media (min-width: $breakpoint-sm) {
+		.page-header h1 {
+			writing-mode: sideways-lr;
+		}
+	}
+}
+
+.social-links {
+	display: flex;
+
+	&__icon-link {
+		height: 3rem;
+		width: 3rem;
+		border-radius: 50%;
+		margin-right: 1rem;
+
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		align-items: center;
+
+		@include dot-matrix;
+		transition: background-color 100ms ease;
+
+		&:hover {
+			background: none;
+			background-color: $theme--accent;
+			color: $theme--dark;
+		}
+
+		svg {
+			height: calc(100% * var(--scale-value, 1));
+			width: calc(100% * var(--scale-value, 1));
+			fill: currentColor;
+		}
+	}
+}
+
+.link-button {
+	display: inline-block;
+	padding: 0.5em 1em;
+	text-decoration: none;
+	background-color: $theme--accent;
+}

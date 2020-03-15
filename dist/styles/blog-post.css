@@ -1,0 +1,803 @@
+@charset "UTF-8";
+/* ======================================================================
+ * Typography
+ * ====================================================================== */
+/* ----------------------------------------------------------------------
+ * Defaults
+ * ---------------------------------------------------------------------- */
+html {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.011em;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.017em;
+  }
+}
+
+h1 {
+  font-size: 80px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.019em;
+  font-weight: 600;
+}
+
+h4,
+h5 {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.017em;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.011em;
+  font-weight: 600;
+}
+
+.lede {
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.019em;
+}
+
+.label {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.011em;
+  font-weight: 300;
+}
+
+/* ======================================================================
+ * Font Faces
+ * ====================================================================== */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Thin-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Thin-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-ThinItalic-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-ThinItalic-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-ExtraLight-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-ExtraLight-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-ExtraLightItalic-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-ExtraLightItalic-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Light-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Light-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-LightItalic-BETA.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-LightItalic-BETA.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Regular.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Regular.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Italic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Italic.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Medium.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Medium.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-MediumItalic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-MediumItalic.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-SemiBold.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-SemiBold.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-SemiBoldItalic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-SemiBoldItalic.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Bold.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Bold.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-BoldItalic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-BoldItalic.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-ExtraBold.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-ExtraBold.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-ExtraBoldItalic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-ExtraBoldItalic.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-Black.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-Black.woff?v=3.11") format("woff");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../../../src/assets/fonts/Inter-BlackItalic.woff2?v=3.11") format("woff2"), url("../../../src/assets/fonts/Inter-BlackItalic.woff?v=3.11") format("woff");
+}
+/* ======================================================================
+ * Resets
+ * 
+ * Lifted from:
+ * - Andy Bell's [Modern CSS Reset](https://github.com/hankchizljaw/modern-css-reset)
+ * - MDN's [CSS Remedy](https://github.com/mozdevs/cssremedy)
+ * ====================================================================== */
+/* Use border-box by default */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*
+* Consistent line spacing
+* [CSS Inline Layout Module Level 3](https://drafts.csswg.org/css-inline-3/#line-sizing-property)
+*/
+html {
+  line-sizing: normal;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove default padding */
+ul,
+ol {
+  padding: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+/* ----------------------------------------------------------------------
+ * Typography
+ * ---------------------------------------------------------------------- */
+/* Overflow by default is bad */
+pre {
+  white-space: pre-wrap;
+}
+
+/*
+* 1. Solid, thin horizontal rules
+* 2. Remove Firefox `color: gray`
+* 3. Remove default `1px` height, and common `overflow: hidden`
+*/
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Link elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* ----------------------------------------------------------------------
+ * Embedded Elements
+ * ---------------------------------------------------------------------- */
+/*
+* 1. Block display is usually what we want
+* 2. Remove strange space-below when inline
+* 3. Responsive by default
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+* Maintain intrinsic aspect ratios when `max-width` is applied
+* (iframe, embed, and object have no intrinsic ratio, set height explicitly)
+*/
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+/* SVG definitions shouldn't take up space */
+svg.defs-only {
+  height: 0;
+  width: 0;
+}
+
+/*
+* There is no good reason elements default to 300px,
+* and audio files are unlikely to come with a width attribute
+*/
+audio {
+  width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Remove all animations and transitions for people who prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+*::before,
+*::after {
+    -webkit-animation-delay: -1s !important;
+            animation-delay: -1s !important;
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ========================================
+ * CSS Variables
+ * ======================================== */
+:root {
+  /* Theme Colors */
+  --background: #f2f2f2;
+  --on-background: #4f4f4f;
+  --accent-primary: #ff6bb5;
+  --accent-secondary: #f2c94c;
+  /* Semantic */
+  --highlight-background: #fff45c;
+  --label: #999999;
+  /* Code */
+  --on-code-background: #d44950;
+  --sample-background: black;
+  --on-sample-background: #77fb4b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #4f4f4f;
+    --on-background: #f2f2f2;
+    --accent-primary: #f2c94c;
+    --accent-secondary: #ff6bb5;
+  }
+}
+/* ========================================
+ * Utilities
+ * ======================================== */
+.visually-hidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  border: 0;
+  top: 0;
+  left: 0;
+  clip: rect(0 0 0 0);
+}
+
+.label {
+  color: var(--label);
+}
+
+.float-right {
+  float: right;
+  shape-outside: border-box;
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+
+/* ========================================
+ * Defaults
+ * ======================================== */
+html {
+  color: var(--on-background);
+  background-color: var(--background);
+}
+
+li::marker {
+  color: var(--accent-primary);
+}
+
+/* Page Navigation */
+nav,
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+nav {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav li {
+  list-style-type: none;
+  margin-right: 1em;
+}
+nav li:last-child {
+  margin-right: 0;
+}
+
+/* Links */
+a {
+  /* Underline replacement with hover & focus effect */
+  color: var(--accent-primary);
+  -webkit-text-decoration-color: var(--accent-primary);
+          text-decoration-color: var(--accent-primary);
+}
+
+.button-link {
+  padding: 0.5em;
+  background: none;
+  color: black;
+  background-color: var(--accent-primary);
+  border: 2px solid var(--accent-secondary);
+  border-radius: 0.25em;
+  font-size: 1rem;
+}
+
+.skip-to-content:focus {
+  -webkit-transition: none;
+  transition: none;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: unset;
+  width: unset;
+  clip: unset;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 0.5em 1em;
+}
+
+.homepage-link {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 max-content;
+          flex: 1 0 max-content;
+  padding-right: 1rem;
+  font-size: 24px;
+}
+
+/* Semantic Markers */
+abbr {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+hr {
+  background-color: var(--on-background);
+}
+
+mark {
+  background-color: var(--highlight-background);
+}
+
+/* Block Quotes */
+blockquote {
+  font-size: 40px;
+  line-height: 1.4;
+  letter-spacing: -0.022em;
+  border-left: 0.25em solid var(--accent-primary);
+  padding-left: 1em;
+}
+blockquote cite {
+  display: block;
+  margin: 0;
+  text-align: right;
+}
+blockquote cite::before {
+  content: "– ";
+}
+
+/* Images and Figures */
+figcaption {
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.011em;
+  padding: 0.5em 0;
+  border-top: 1px solid var(--background);
+  text-align: center;
+  color: var(--background);
+  background-color: var(--on-background);
+}
+
+/* Tables */
+table {
+  margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.017em;
+}
+
+caption {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.006em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tfoot {
+  border-top: 1px solid;
+}
+
+tfoot,
+th {
+  font-weight: 600;
+}
+
+th,
+td {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.numeric {
+  text-align: right;
+}
+
+/* Code Formatting */
+pre,
+code,
+samp,
+kbd {
+  font-family: "Fira Code", "Liberation Mono", "SFMono-Regular", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", Menlo, Courier, monospace;
+  font-size: 1rem;
+}
+
+pre,
+:not(pre) > code,
+samp,
+kbd,
+mark {
+  padding: 0 0.1em;
+  border-radius: 3px;
+}
+
+samp {
+  color: var(--on-sample-background);
+  background-color: var(--sample-background);
+}
+
+kbd {
+  margin: 0 2px;
+  border: 1px solid var(--on-background);
+  -webkit-box-shadow: 1px 1px 1px #171f26;
+          box-shadow: 1px 1px 1px #171f26;
+}
+
+pre {
+  max-width: 100%;
+  padding: 1em;
+}
+
+/* Shared Page Layout */
+body {
+  display: grid;
+  grid-template-rows: -webkit-max-content auto -webkit-max-content;
+  grid-template-rows: max-content auto max-content;
+  grid-gap: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+body > * {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body > header,
+body > footer {
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+}
+body > footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  color: var(--on-background);
+  background-color: var(--background);
+}
+body > footer :first-child {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 1em;
+}
+
+.spacing-container > * + * {
+  margin-top: 1em;
+}
+
+/*
+	blog-post.scss
+	Blog post styling
+	Written by Eli Howey
+	Copyright 2019
+*/
+main {
+  max-width: 1200px;
+  padding-bottom: 1rem;
+}
+
+article {
+  max-width: 65ch;
+  margin: auto;
+}
+article::after {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  margin: 2rem auto;
+  content: "";
+  border: 1px solid black;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px var(--accent-secondary), 5px 5px black, 8px 8px var(--accent-primary), 9px 9px black;
+          box-shadow: 4px 4px var(--accent-secondary), 5px 5px black, 8px 8px var(--accent-primary), 9px 9px black;
+}
+
+/* Progress Bar */
+progress {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: unset;
+  background-color: transparent;
+  color: var(--on-background);
+}
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+progress::-webkit-progress-value {
+  background-color: var(--accent-primary);
+  -webkit-box-shadow: 0 1px 2px rgba(153, 153, 153, 0.5);
+          box-shadow: 0 1px 2px rgba(153, 153, 153, 0.5);
+}
+progress::-moz-progress-bar {
+  background-color: var(--accent-primary);
+  box-shadow: 0 1px 2px rgba(153, 153, 153, 0.5);
+}
+progress[is=blog-post-progress-bar] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100vw;
+}
+
+blog-post-length:not(:empty)::before {
+  content: "•";
+  padding: 0 1ch;
+}
+
+/**
+ * Heading Permalinks
+ * 1. Relatively position headings that will have permalinks
+ * 2. Use a pseudo-element to create a hover target
+ * 3. Position the permalink icon within the hover target
+ */
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+  position: relative;
+  /* 1 */
+  /* 2 */
+}
+h1[id]::before,
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
+  content: "";
+  position: absolute;
+  left: -1em;
+  height: 100%;
+  width: 1em;
+}
+
+.heading-permalink {
+  /* 3 */
+  position: absolute;
+  left: -1em;
+  background: none;
+}
+.heading-permalink svg {
+  display: inline-block;
+  height: 0.75em;
+  width: 0.75em;
+  vertical-align: baseline;
+  stroke: currentColor;
+  fill: currentColor;
+}
+@media (hover: hover) {
+  .heading-permalink {
+    opacity: 0;
+    -webkit-transition: opacity 100ms linear;
+    transition: opacity 100ms linear;
+  }
+  :hover > .heading-permalink, .heading-permalink:hover, .heading-permalink:focus {
+    opacity: 1;
+  }
+}
+
+/* Tags */
+.tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.tags > :first-child {
+  margin-right: 1ch;
+}
+
+.tag-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.tag {
+  margin: 0 0.25em 0.25em 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0.1em 0.25em;
+  border: 1px solid var(--on-background);
+  border-radius: 0.25em;
+}
+/*# sourceMappingURL=to.css.map */

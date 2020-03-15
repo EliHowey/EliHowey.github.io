@@ -1,57 +1,32 @@
+/*
+	Main styles for elihowey.com
+	Written by Eli Howey
+	Copyright 2020
+*/
+
+// ============================================================================
+// Imports
+// ============================================================================
+@import '../breakpoints';
+@import '../colors';
+@import '../font-faces';
+
 @import '../reset';
 @import '../utilities';
 
-$breakpoint-sm: 500px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1200px;
+// ============================================================================
+// Variables
+// ============================================================================
 
-$theme--light: #f1f1f6;
-$theme--dark: #262738;
-$theme--accent: #f2c94c;
-$theme--focus: #166bdd;
+$page-padding--mobile: 1rem;
+$main-content-max-width: 50ch;
 
-@mixin dot-matrix($dot-size: 2px, $dot-space: 6px) {
-	$negative-space: $dot-space - $dot-size;
+$transition-short: 100ms;
+$transition-long: 250ms;
 
-	background: linear-gradient(
-				90deg,
-				$theme--light $negative-space,
-				transparent 1%
-			)
-			center,
-		linear-gradient($theme--light $negative-space, transparent 1%) center,
-		rgba($theme--focus, 0.15);
-	background-size: $dot-space $dot-space;
-	background-position: 4px 4px;
-	color: $theme--focus;
-}
-
-@font-face {
-	font-family: 'Inter';
-	font-weight: normal;
-	unicode-range: U+0020-00FE, U+2014-2019;
-	font-display: swap;
-	src: url('/src/fonts/Inter-Regular.woff2') format('woff2'),
-		url('/src/fonts/Inter-Regular.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Inter';
-	font-weight: 500;
-	unicode-range: U+0020-00FE, U+2014-2019;
-	font-display: swap;
-	src: url('/src/fonts/Inter-Medium.woff2') format('woff2'),
-		url('/src/fonts/Inter-Medium.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Inter';
-	font-weight: 600;
-	unicode-range: U+0020-00FE, U+2014-2019;
-	font-display: swap;
-	src: url('/src/fonts/Inter-SemiBold.woff2') format('woff2'),
-		url('/src/fonts/Inter-SemiBold.woff') format('woff');
-}
+// ============================================================================
+// Typography
+// ============================================================================
 
 html {
 	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -59,26 +34,21 @@ html {
 	font-size: 20px;
 	letter-spacing: -0.01em;
 
-	@media (min-width: $breakpoint-sm) {
+	@media screen and (min-width: $breakpoint-sm) {
 		font-size: 18px;
 	}
 
-	@media (min-width: $breakpoint-md) {
+	@media screen and (min-width: $breakpoint-md) {
 		font-size: 24px;
 	}
 }
 
-body {
-	color: $theme--dark;
-	background-color: $theme--light;
-}
-
 h1 {
 	font-size: 2rem;
-	line-height: 1.1;
+	line-height: 1;
 	letter-spacing: -0.02em;
 
-	@media (min-width: $breakpoint-sm) {
+	@media screen and (min-width: $breakpoint-sm) {
 		font-size: calc(16rem / 3);
 	}
 }
@@ -87,7 +57,7 @@ h2,
 .headline {
 	font-size: 1.5rem;
 
-	@media (min-width: $breakpoint-sm) {
+	@media screen and (min-width: $breakpoint-sm) {
 		font-size: calc(8rem / 3);
 	}
 }
@@ -96,7 +66,7 @@ h3,
 .lede {
 	font-size: 1.25rem;
 
-	@media (min-width: $breakpoint-sm) {
+	@media screen and (min-width: $breakpoint-sm) {
 		font-size: 1.5rem;
 	}
 }
@@ -117,13 +87,19 @@ figcaption,
 	font-size: 0.8rem;
 }
 
-.callout {
-	@include dot-matrix;
+// ============================================================================
+// Theme
+// ============================================================================
+
+body {
+	color: $theme--dark;
+	background-color: $theme--light;
 }
 
 a {
 	color: inherit;
-	transition: background-color 100ms ease, box-shadow 100ms ease;
+	transition: background-color $transition-short ease,
+		box-shadow $transition-short ease;
 
 	&:hover,
 	&:focus {
@@ -143,6 +119,20 @@ a {
 	}
 }
 
+::selection {
+	color: $theme--light;
+	background-color: $theme--focus;
+}
+
+.callout {
+	color: $theme--focus;
+	@include dot-matrix;
+}
+
+// ============================================================================
+// Page Contents
+// ============================================================================
+
 #skip-to-content-link:focus {
 	position: fixed;
 	height: auto;
@@ -151,92 +141,57 @@ a {
 	transform: translate(calc(50vw - 50%), 5px);
 }
 
-::selection {
-	color: $theme--light;
-	background-color: $theme--focus;
-}
-
 .page-content {
 	min-height: 100vh;
-	padding: 1em;
-	display: flex;
-	flex-direction: column;
-
-	@media (min-width: $breakpoint-sm) {
-		padding: unset;
-
-		display: grid;
-		grid-gap: 1rem 5vw;
-		grid-template-rows:
-			[nav-start] auto
-			[nav-end title-start] auto
-			[title-end content-start decoration-start] 1fr
-			[content-end footer-start] auto
-			[footer-end decoration-end];
-		grid-template-columns:
-			[nav-start footer-start] 1fr
-			[title-start content-start] minmax(min-content, 50ch)
-			[title-end content-end decoration-start] 2vw
-			[nav-end] 1fr
-			[decoration-end footer-end];
-	}
 }
 
 .page-header {
 	margin-bottom: 2rem;
 
+	// Only underline the header link to the current page
+	a:not([aria-current='page']) {
+		text-decoration: none;
+	}
+
 	&__title {
 		grid-area: title;
-		line-height: 1;
 		position: relative;
+		text-decoration: none;
 
 		// Accent stripe
 		&::after {
 			content: '';
 			display: block;
-			block-size: 0.1em;
-			inline-size: calc(100% + (100vw - 100% + 7vw) / 2);
+			block-size: 0.11em;
+			inline-size: calc(100% + (100vw - 100%) / 2);
 
+			// Align stripe with the middle bar of capital letters
 			position: absolute;
 			inset-inline-start: 0;
-			margin-block-start: -0.55em;
+			margin-block-start: -0.555em;
 
 			background-color: $theme--accent;
 			z-index: -1; // To sit behind the header text
 		}
 	}
 
-	nav {
+	&__nav {
 		grid-area: nav;
-	}
-
-	a:not([aria-current='page']) {
-		text-decoration: none;
-	}
-
-	ul {
-		list-style-type: none;
-		border-top: 1px solid;
-		padding-top: 0.5em;
-		display: flex;
-	}
-
-	li + li {
-		margin-left: 1rem;
-	}
-
-	@media (min-width: $breakpoint-sm) {
-		display: contents;
 
 		ul {
-			justify-content: flex-end;
+			list-style-type: none;
+			border-top: 1px solid;
+			padding-top: 0.5em;
+		}
+
+		li + li {
+			margin-left: 1rem;
 		}
 	}
 }
 
 .page-main {
 	grid-area: content;
-	max-width: 50ch;
 	padding-bottom: 5em;
 }
 
@@ -247,50 +202,9 @@ a {
 
 .page-footer {
 	grid-area: footer;
+	padding: 1em;
 	color: $theme--light;
 	background-color: $theme--dark;
-
-	padding: 1em;
-
-	&__contents {
-		align-self: center;
-	}
-
-	@media (max-width: $breakpoint-sm) {
-		margin: -1em;
-		margin-top: auto;
-	}
-}
-
-@supports (writing-mode: sideways-lr) {
-	.page-content {
-		grid-template-rows:
-			[nav-start title-start] 20vh
-			[nav-end content-start decoration-start] minmax(60vh, max-content)
-			[title-end] 1fr
-			[content-end footer-start] auto
-			[footer-end decoration-end];
-		grid-template-columns:
-			[nav-start footer-start] 1fr
-			[title-start] auto
-			[title-end content-start footer-contents-start] minmax(
-				min-content,
-				50ch
-			)
-			[content-end decoration-start] 2%
-			[nav-end] 1fr
-			[decoration-end footer-contents-end footer-end];
-	}
-
-	@media (min-width: $breakpoint-sm) {
-		.page-header h1 {
-			writing-mode: sideways-lr;
-
-			&::after {
-				inline-size: calc(100% + 1rem);
-			}
-		}
-	}
 }
 
 .social-links {
@@ -309,9 +223,9 @@ a {
 		align-items: center;
 
 		@include dot-matrix;
-		transition: background-color 100ms ease;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background: none;
 			background-color: $theme--accent;
 			color: $theme--dark;
@@ -320,7 +234,6 @@ a {
 		svg {
 			height: calc(100% * var(--scale-value, 1));
 			width: calc(100% * var(--scale-value, 1));
-			fill: currentColor;
 		}
 	}
 }
@@ -346,15 +259,140 @@ a {
 		background-color: $theme--accent;
 		color: $theme--dark;
 	}
+}
 
-	@media (min-width: $breakpoint-sm) {
+// ============================================================================
+// Media-Specific Variations
+// ============================================================================
+
+// Small viewports only:
+// 1. Add padding to the page, and counteract it in the footer
+// 2. Use flexbox to push the footer to the bottom of the page
+@media screen and (max-width: $breakpoint-sm) {
+	.page-content {
+		display: flex; // 2
+		flex-direction: column; // 2
+		padding: $page-padding--mobile; // 1
+	}
+
+	.page-footer {
+		margin: -1 * $page-padding--mobile; // 1
+		margin-top: auto; // 2
+	}
+}
+
+// Medium+ viewports only:
+@media screen and (min-width: $breakpoint-sm) {
+	// NOTE: These variables should be in absolute units!
+	$grid-column-gap: 5vw;
+	$decoration-overlap: 2vw;
+
+	// Switch to a grid to position content more artistically
+	.page-content {
+		padding: unset;
+
+		display: grid;
+		grid-gap: 1rem $grid-column-gap;
+		grid-template-rows:
+			[nav-start] auto
+			[nav-end title-start] auto
+			[title-end content-start decoration-start] 1fr
+			[content-end footer-start] auto
+			[footer-end decoration-end];
+		grid-template-columns:
+			[nav-start footer-start] 1fr
+			[title-start content-start] minmax(
+				min-content,
+				$main-content-max-width
+			)
+			[title-end content-end decoration-start] $decoration-overlap
+			[nav-end] 1fr
+			[decoration-end footer-end];
+	}
+
+	// 1. Position the header's contents on the grid, so they can be reordered
+	// 2. Extend the title's accent stripe to the right-hand side of the page
+	// 3. Right-align the navigation
+	// 4. Give navigation links some breathing room
+	.page-header {
+		display: contents; // 1
+
+		// 2
+		&__title::after {
+			$grid-offset: $decoration-overlap + $grid-column-gap;
+			inline-size: calc(100% + (100vw - 100% + #{$grid-offset}) / 2);
+		}
+
+		// 3
+		&__nav ul {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		&__nav a {
+			padding: 0.25em; // 4
+		}
+	}
+
+	// Add a hover effect to callout figures
+	.callout-figure {
 		@include dot-matrix;
 
 		&__contents {
-			transition: transform 250ms ease;
+			transition: transform $transition-long ease;
 
 			&:hover {
 				transform: translate(0.5rem, -0.5rem);
+			}
+		}
+	}
+}
+
+// ============================================================================
+// Experimental Variations
+// ============================================================================
+
+// Align footer contents with main content
+@supports (grid-template-columns: subgrid) {
+	@media screen and (min-width: $breakpoint-sm) {
+		.page-footer {
+			display: grid;
+			grid-template-columns: subgrid;
+
+			&__contents {
+				grid-column: content;
+			}
+		}
+	}
+}
+
+// Turn the page title sideways and position it left of the main content
+@supports (writing-mode: sideways-lr) {
+	.page-content {
+		grid-template-rows:
+			[nav-start title-start] 20vh
+			[nav-end content-start decoration-start] minmax(60vh, max-content)
+			[title-end] 1fr
+			[content-end footer-start] auto
+			[footer-end decoration-end];
+		grid-template-columns:
+			[nav-start footer-start] 1fr
+			[title-start] auto
+			[title-end content-start] minmax(
+				min-content,
+				$main-content-max-width
+			)
+			[content-end decoration-start] 2%
+			[nav-end] 1fr
+			[decoration-end footer-end];
+	}
+
+	@media screen and (min-width: $breakpoint-sm) {
+		.page-header h1 {
+			writing-mode: sideways-lr;
+
+			&::after {
+				inline-size: 100%;
 			}
 		}
 	}

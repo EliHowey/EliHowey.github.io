@@ -12,19 +12,26 @@
 	clip: rect(0 0 0 0);
 }
 
-.label {
-	font-size: var(--size-down-1);
-	font-weight: 300;
-	color: var(--label);
-}
-
-.float-right {
-	float: right;
-	shape-outside: border-box;
-	padding-left: 1em;
-	padding-bottom: 1em;
-}
-
 .spacer > * + * {
 	margin-top: 1em;
+}
+
+@mixin dot-matrix(
+	$dot-size: 2px,
+	$dot-space: 6px,
+	$dot-color: $theme--focus,
+	$bg-color: $theme--light
+) {
+	$negative-space: $dot-space - $dot-size;
+
+	background: linear-gradient(
+				90deg,
+				$bg-color $negative-space,
+				transparent 1%
+			)
+			center,
+		linear-gradient($bg-color $negative-space, transparent 1%) center,
+		rgba($dot-color, 0.15);
+	background-size: $dot-space $dot-space;
+	background-position: 4px 4px;
 }

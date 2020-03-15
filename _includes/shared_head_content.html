@@ -2,8 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>
-	{% if page.title %}
-	{{ page.title }} - Eli Howey {% else %} Eli Howey {% endif %}
+	{% if page.title %} {{ page.title }} - Eli Howey {% else %} Eli Howey {%
+	endif %}
 </title>
 <meta name="description" content="{{ page.description }}" />
 
@@ -48,9 +48,3 @@
 
 <!-- Metadata links -->
 <link rel="canonical" href="https://elihowey.com{{ page.url }}" />
-
-<!-- Fonts -->
-<link
-	rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700&display=swap"
-/>

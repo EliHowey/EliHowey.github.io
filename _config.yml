@@ -23,3 +23,5 @@ exclude:
 
 plugins:
     - jekyll-sitemap
+    - jekyll-gzip
+    - jekyll-brotli

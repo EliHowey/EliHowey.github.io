@@ -1,14 +1,29 @@
 <footer class="page-footer">
-	<div class="page-footer__contents label">
-		<span>&copy; 2020 Eli Howey</span>
+	<div class="page-footer__contents">
+		<div class="spacer">
+			<span>&copy; 2020 Eli Howey</span>
+			<p>
+				Built with <a href="">Jekyll</a> and hosted on
+				<a href="https://pages.github.com/">GitHub Pages</a>.
+			</p>
+		</div>
 
-		{% if include.show_back_to_top %}
-		<a href="#" class="icon-link link--to-top">
-			<svg>
-				<use xlink:href="/src/assets/icons.svg#arrow-up"></use>
-			</svg>
-			<span class="visually-hidden">Back to top</span>
-		</a>
-		{% endif %}
+		<div class="page-footer__links">
+			{% if include.show_back_to_top %}
+			<a href="#" class="icon-link link--to-top">
+				<svg aria-hidden="true">
+					<use xlink:href="/src/assets/icons.svg#arrow-up"></use>
+				</svg>
+				<span class="visually-hidden">Back to top</span>
+			</a>
+			{% endif %}
+
+			<a href="/blog/atom.xml" class="icon-link">
+				<svg aria-hidden="true">
+					<use xlink:href="/src/assets/icons.svg#rss"></use>
+				</svg>
+				<span class="visually-hidden">RSS Feed</span>
+			</a>
+		</div>
 	</div>
 </footer>

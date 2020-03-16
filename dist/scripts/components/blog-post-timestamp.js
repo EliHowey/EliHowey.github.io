@@ -14,7 +14,9 @@ export class BlogPostTimestamp extends HTMLTimeElement {
     connectedCallback() {
         const postDate = Date.parse(this.dateTime);
         this.textContent = this.getRelativeDate(postDate);
-        this.title = this.absoluteDateFormatter.format(new Date(postDate));
+        const formattedAbsoluteDate = this.absoluteDateFormatter.format(new Date(postDate));
+        this.title = formattedAbsoluteDate;
+        this.setAttribute('aria-label', formattedAbsoluteDate);
     }
     getRelativeDate(timestamp) {
         const relativeDateInMinutes = (timestamp - Date.now()) / (1000 * 60);

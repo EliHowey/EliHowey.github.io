@@ -1,27 +1,30 @@
 ---
 layout: default
-stylesheet_path: '/dist/styles/blog-post.min.css'
+stylesheet_path: '/dist/styles/main.min.css'
 script_path: '/dist/scripts/blog-post.js'
 show_back_to_top: true
 ---
 
-<progress is="blog-post-progress-bar" id="article-progress-bar"></progress>
-<article id="blog-post">
-	<header id="blog-post-header">
-		<h2>{{ page.title }}</h2>
-		<time
-			is="blog-post-timestamp"
-			datetime="{{ page.date | date_to_xmlschema }}"
-			class="label"
-			>{{ page.date | date: '%B %-d, %Y' }}</time
-		>
-		<blog-post-length class="label"></blog-post-length>
+<article id="blog-post" class="spacer">
+	<header class="post-header spacer">
+		<h2 class="post-header__title">{{ page.title }}</h2>
+		<div class="post-header__metadata label">
+			<span class="post-header__timestamp">
+				Posted
+				<time
+					is="blog-post-timestamp"
+					datetime="{{ page.date | date_to_xmlschema }}"
+					>{{ page.date | date: '%B %-d, %Y' }}</time
+				>
+			</span>
+			<blog-post-length></blog-post-length>
+		</div>
 	</header>
 
 	{{ content }}
 
 	<footer class="tags">
-		<span class="label">Tags:</span>
+		<span class="visually-hidden">Tags:</span>
 		{% if page.tags.size > 0 %}
 		<ul class="tag-list">
 			{% for tag in page.tags %}

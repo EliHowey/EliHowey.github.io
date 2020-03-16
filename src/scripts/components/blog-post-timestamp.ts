@@ -18,9 +18,11 @@ export class BlogPostTimestamp extends HTMLTimeElement {
 
 	connectedCallback(): void {
 		const postDate = Date.parse(this.dateTime);
-
 		this.textContent = this.getRelativeDate(postDate);
-		this.title = this.absoluteDateFormatter.format(new Date(postDate));
+		
+		const formattedAbsoluteDate = this.absoluteDateFormatter.format(new Date(postDate));
+		this.title = formattedAbsoluteDate;
+		this.setAttribute('aria-label', formattedAbsoluteDate);
 	}
 
 	private getRelativeDate(timestamp: number): string {

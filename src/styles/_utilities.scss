@@ -13,7 +13,7 @@
 }
 
 .spacer > * + * {
-	margin-top: 1em;
+	margin-top: var(--space, 1em);
 }
 
 @mixin dot-matrix(

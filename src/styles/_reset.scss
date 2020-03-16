@@ -36,7 +36,8 @@ figure,
 figcaption,
 blockquote,
 dl,
-dd {
+dd,
+pre {
 	margin: 0;
 }
 
@@ -59,7 +60,9 @@ body {
 
 /* Overflow by default is bad */
 pre {
-	white-space: pre-wrap;
+	white-space: pre;
+	overflow-x: auto;
+	tab-size: 4;
 }
 
 /*

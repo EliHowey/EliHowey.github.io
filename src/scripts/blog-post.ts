@@ -29,13 +29,16 @@ function renderHeadingLinks(): void {
 }
 
 function addCodeLanguages(): void {
-	const codeElements = [...document.querySelectorAll<HTMLElement>('[class*="language"]')];
+	const codeElements = [...document.querySelectorAll<HTMLElement>('div[class*="language"]')];
 
 	for (const el of codeElements) {
 		for (const className of el.classList) {
 			if (className.startsWith('language-')) {
 				const language = className.split('language-')[1];
-				el.dataset.language = language;
+
+				if (language && language !== 'plaintext') {
+					el.dataset.language = language;
+				}
 			}
 		}
 	}

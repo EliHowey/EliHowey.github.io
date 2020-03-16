@@ -225,7 +225,8 @@ li::marker {
 
 .page-footer {
 	grid-area: footer;
-	padding: 1.5em 1em;
+	padding: 3em 1em;
+	font-size: 0.8rem;
 	color: $theme--light;
 	background-color: $theme--dark;
 
@@ -233,6 +234,13 @@ li::marker {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 1em;
+	}
+
+	&__links {
+		--icon-link-size: 2rem;
+		--icon-scale: 0.5;
+		flex-basis: min-content;
 	}
 }
 
@@ -389,11 +397,6 @@ div.highlighter-rouge {
 	&:hover {
 		background-color: $theme--accent;
 	}
-}
-
-.link--to-top {
-	--icon-link-size: 2rem;
-	--icon-scale: 0.5;
 }
 
 // ============================================================================

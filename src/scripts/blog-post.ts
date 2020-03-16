@@ -1,5 +1,4 @@
 import { BlogPostLength } from './components/blog-post-length.js';
-import { BlogPostProgressBar } from './components/blog-post-progress-bar.js';
 import { BlogPostTimestamp } from './components/blog-post-timestamp.js';
 
 function renderHeadingLinks(): void {
@@ -8,29 +7,44 @@ function renderHeadingLinks(): void {
 	for (const heading of headings) {
 		const link = document.createElement('a');
 		link.href = `#${heading.id}`;
-		link.className = 'heading-permalink';
-		link.setAttribute('aria-label', 'Permalink');
+		link.classList.add('icon-link', 'heading-permalink');
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		svg.setAttribute('viewBox', '0 0 457.03 457.03');
+		svg.setAttribute('aria-hidden', 'true');
 
 		const useEl = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-		useEl.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#icon--link');
-		useEl.setAttribute('href', '#icon--link');
+		useEl.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/src/assets/icons.svg#link');
+		useEl.setAttribute('href', '/src/assets/icons.svg#link');
 
+		const linkLabel = document.createElement('span');
+		linkLabel.className = 'visually-hidden';
+		linkLabel.textContent = 'Permalink to this heading';
 
 		svg.appendChild(useEl);
 		link.appendChild(svg);
+		link.appendChild(linkLabel);
 		heading.appendChild(link);
+	}
+}
+
+function addCodeLanguages(): void {
+	const codeElements = [...document.querySelectorAll<HTMLElement>('[class*="language"]')];
+
+	for (const el of codeElements) {
+		for (const className of el.classList) {
+			if (className.startsWith('language-')) {
+				const language = className.split('language-')[1];
+				el.dataset.language = language;
+			}
+		}
 	}
 }
 
 customElements.define('blog-post-timestamp', BlogPostTimestamp, {
 	extends: 'time'
 });
-customElements.define('blog-post-progress-bar', BlogPostProgressBar, {
-	extends: 'progress'
-});
 customElements.define('blog-post-length', BlogPostLength);
 
 renderHeadingLinks();
+addCodeLanguages();

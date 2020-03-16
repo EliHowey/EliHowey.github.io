@@ -1,9 +1,14 @@
 <footer class="page-footer">
-	<div class="page-footer__contents">
-		<div class="label">&copy; 2020 Eli Howey</div>
+	<div class="page-footer__contents label">
+		<span>&copy; 2020 Eli Howey</span>
 
 		{% if include.show_back_to_top %}
-		<a href="#">Back to top</a>
+		<a href="#" class="icon-link link--to-top">
+			<svg>
+				<use xlink:href="/src/assets/icons.svg#arrow-up"></use>
+			</svg>
+			<span class="visually-hidden">Back to top</span>
+		</a>
 		{% endif %}
 	</div>
 </footer>

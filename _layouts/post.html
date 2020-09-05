@@ -5,20 +5,24 @@ script_path: '/dist/scripts/blog-post.js'
 show_back_to_top: true
 ---
 
-<article id="blog-post" class="spacer">
+<article
+	id="blog-post"
+	class="spacer"
+	itemscope
+	itemtype="http://schema.org/Article"
+>
 	<header class="post-header spacer">
-		<h2 class="post-header__title">{{ page.title }}</h2>
-		<div class="post-header__metadata label">
-			<span class="post-header__timestamp">
-				Posted
-				<time
-					is="blog-post-timestamp"
-					datetime="{{ page.date | date_to_xmlschema }}"
-					>{{ page.date | date: '%B %-d, %Y' }}</time
-				>
-			</span>
+		<h1 class="post-header__title">{{ page.title }}</h1>
+		<p class="post-header__metadata label">
+			<time
+				is="blog-post-timestamp"
+				class="post-header__timestamp dateline"
+				datetime="{{ page.date | date_to_xmlschema }}"
+				itemprop="datePublished"
+				>{{ page.date | date: '%B %-d, %Y' }}</time
+			>
 			<blog-post-length></blog-post-length>
-		</div>
+		</p>
 	</header>
 
 	{{ content }}

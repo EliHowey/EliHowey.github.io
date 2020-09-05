@@ -43,7 +43,7 @@ html {
 	}
 }
 
-h1 {
+.page-header__title {
 	font-size: 2rem;
 	line-height: 1;
 	letter-spacing: -0.02em;
@@ -53,13 +53,22 @@ h1 {
 	}
 }
 
-h2,
+h1,
 .headline {
 	font-size: 1.5rem;
 	line-height: 1.1;
 
 	@media screen and (min-width: $breakpoint-sm) {
 		font-size: calc(8rem / 3);
+	}
+}
+
+h2 {
+	font-size: 1.33rem;
+	line-height: 1.25;
+
+	@media screen and (min-width: $breakpoint-sm) {
+		font-size: 2rem;
 	}
 }
 
@@ -179,6 +188,7 @@ li::marker {
 	&__title {
 		grid-area: title;
 		position: relative;
+		font-weight: bold;
 		text-decoration: none;
 
 		// Accent stripe
@@ -347,7 +357,7 @@ div.highlighter-rouge {
 }
 
 .post-header__timestamp::after {
-	content: '•';
+	content: ' • ';
 }
 
 // Article wordmark
@@ -520,7 +530,7 @@ div.highlighter-rouge {
 	}
 
 	@media screen and (min-width: $breakpoint-sm) {
-		.page-header h1 {
+		.page-header__title {
 			writing-mode: sideways-lr;
 
 			&::after {

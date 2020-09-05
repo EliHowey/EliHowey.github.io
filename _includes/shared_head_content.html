@@ -1,18 +1,33 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>
-	{% if page.title %} {{ page.title }} | Eli Howey - Front-end Web Developer
-	{% else %} Eli Howey - Front-end Web Developer {% endif %}
-</title>
+{% capture title %} {% if page.title %} {{ page.title }} | Eli Howey {% else %}
+Eli Howey - Front-end Web Developer {% endif %} {% endcapture %}
+
+<title>{{ title }}</title>
 <meta name="description" content="{{ page.description }}" />
 
+{% if page.author %}
+<meta name="author" content="{{ page.author }}" />
+{% endif %}
+
 <!-- Schema.org -->
-<meta
-	itemprop="name"
-	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
-/>
+<meta itemprop="name" content="{{ title }}" />
 <meta itemprop="description" content="{{ page.description }}" />
+
+{% if page.author %}
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "Article",
+		"datePublished": "{{ page.date | date_to_xmlschema }}",
+		"author": {
+			"@type": "Person",
+			"name": "{{ page.author }}"
+		}
+	}
+</script>
+{% endif %}
 
 <!-- Search engine crawlers and indexers -->
 <meta name="robots" content="index,follow" />
@@ -26,24 +41,34 @@
 
 <!-- Facebook Open Graph -->
 <meta property="fb:app_id" content="472071186851880" />
+
+{% if page.author %}
+<meta property="og:type" content="article" />
+{% else %}
 <meta property="og:type" content="website" />
+{% endif %}
+
 <meta property="og:site_name" content="Eli Howey" />
 <meta property="og:url" content="https://elihowey.com{{ page.url }}" />
-<meta
-	property="og:title"
-	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
-/>
+<meta property="og:title" content="{{ title }}" />
 <meta property="og:description" content="{{ page.description }}" />
 <meta property="og:locale" content="en_US" />
+
+{% if page.author %}
+<meta property="article:author" content="{{ page.author }}" />
+{% endif %} {% if page.date %}
+<meta
+	property="article:published_time"
+	content="{{ page.date | date_to_xmlschema }}"
+/>
+{% endif %}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@elihowey" />
+<meta name="twitter:creator" content="@elihowey" />
 <meta name="twitter:url" content="https://elihowey.com{{ page.url }}" />
-<meta
-	name="twitter:title"
-	content="{%if page.title %}{{ page.title }}{% else %}Eli Howey{% endif %}"
-/>
+<meta name="twitter:title" content="{{ title }}" />
 <meta name="twitter:description" content="{{ page.description }}" />
 
 <!-- Metadata links -->
